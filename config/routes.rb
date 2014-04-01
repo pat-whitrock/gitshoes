@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post 'repos' => 'repos#create'
   get 'repos' => 'repos#index'
 
+  get '/auth/github' => 'auth#github', as: 'github_login'
+  get '/auth/github/callback' => 'sessions#create', as: 'github_callback'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
