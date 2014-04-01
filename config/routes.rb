@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'repos/new' => 'repos#new', as: 'new_repo'
   post 'repos' => 'repos#create'
+  get 'repos' => 'repos#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
