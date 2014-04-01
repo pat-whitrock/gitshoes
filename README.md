@@ -17,6 +17,13 @@ like?
 
 Bullet point some of the key features of your app here.
 
+X - Can post issues to Github from Command Line
+X - Create issue form
+X - Can post issues to Github from issue form
+O - Add users
+O - OAuth
+O - Javascript front-end (embedded script tag)
+
 ## Usage
 
 How do users use your app?

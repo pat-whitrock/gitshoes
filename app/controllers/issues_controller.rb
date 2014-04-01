@@ -26,7 +26,7 @@ class IssuesController < ApplicationController
 
 	private
 	def issue_params
-		params.require(:issue).permit(:email, :title, :body, :repo)
+		params.require(:issue).permit(:email, :title, :body)
 	end
 
 	def create_github_issue(attributes)
