@@ -4,6 +4,11 @@ class ReposController < ApplicationController
 	end
 
 	def new
+		@repo = Repo.new
+	end
+
+	def create
+
 	end
 
 	def show

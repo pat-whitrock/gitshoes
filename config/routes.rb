@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
   # get 'issues' => 'issues#index'
-  get 'issues/new' => 'issues#new'
+  get 'issues/new' => 'issues#new', as: 'new_issue'
   post 'issues' => 'issues#create'
   # get 'issues/:id' => 'issues#show'
   # get 'issues/:id/edit' => 'issues#edit'
   # patch 'issues/:id' => 'issues#update'
   # delete 'issues/:id' => 'issues#destroy'
+
+  get 'repos/new' => 'repos#new', as: 'new_repo'
+  post 'repos' => 'repos#create'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
