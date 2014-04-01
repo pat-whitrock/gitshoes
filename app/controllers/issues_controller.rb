@@ -9,7 +9,7 @@ class IssuesController < ApplicationController
 
 	def create
 		Issue.create_github_issue(issue_params)
-		redirect_to new_issue_path
+		redirect_to repo_path
 	end
 
 	# def show
