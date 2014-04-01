@@ -3,6 +3,6 @@
 
 <ol>
 <% @repos.each do |repo| %>
-<li><%= repo.address %></li>
+<li><%= link_to repo.address, repo %></li>
 <% end %>
 </ol>
