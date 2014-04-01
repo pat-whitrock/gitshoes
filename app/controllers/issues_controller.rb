@@ -8,7 +8,7 @@ class IssuesController < ApplicationController
 	end
 
 	def create
-		create_github_issue(issue_params)
+		Issue.create_github_issue(issue_params)
 		redirect_to new_issue_path
 	end
 
@@ -27,12 +27,6 @@ class IssuesController < ApplicationController
 	private
 	def issue_params
 		params.require(:issue).permit(:email, :title, :body)
-	end
-
-	def create_github_issue(attributes)
-		client = Octokit::Client.new(:access_token => ENV["GITHUB_ACCESS_TOKEN"])
-		user = client.user.login
-		client.create_issue('pat-whitrock/gitshoes', attributes['title'], attributes['body'])
 	end
 
 end
