@@ -6,10 +6,3 @@
 </ol>
 <%= link_to 'Back', repos_path, class: "btn btn-primary" %>
 <%= link_to 'Create Issue', new_issue_path, class: "btn btn-primary" %>
-
-
-<% @repo.issues.each do |issue| %>
-	<%= issue.email %>
-	<%= issue.title %>
-	<%= issue.body %>
-<% end %>
