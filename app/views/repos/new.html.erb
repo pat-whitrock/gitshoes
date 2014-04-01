@@ -1,3 +1,5 @@
+<h1>Add Repository</h1>
+
 <%= form_for @repo do |f| %>
 	<%= f.label :address %>
 	<%= f.text_field :address %>
@@ -5,5 +7,5 @@
 	<%= f.label :token %>
 	<%= f.text_field :token %>
 	</br>
-	<%= f.submit %>
+	<%= f.submit 'Add Repository'%>
 <% end %>
