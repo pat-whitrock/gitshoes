@@ -20,8 +20,10 @@ Bullet point some of the key features of your app here.
 X - Can post issues to Github from Command Line
 X - Create issue form
 X - Can post issues to Github from issue form
-O - Add users
-O - OAuth
+X - Add users
+X - OAuth
+X - Devise
+O - Add name to user (from Github)
 O - Javascript front-end (embedded script tag)
 
 ## Usage
