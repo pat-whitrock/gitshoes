@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'static#index'
+
   # get 'issues' => 'issues#index'
   get 'issues/new' => 'issues#new', as: 'new_issue'
   post 'issues' => 'issues#create'
