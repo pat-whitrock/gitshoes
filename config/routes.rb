@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'static#index'
 
   # get 'issues' => 'issues#index'
-  get 'issues/new' => 'issues#new', as: 'new_issue'
-  post 'issues' => 'issues#create'
+  get 'repos/:id/issues/new' => 'issues#new', as: 'new_issue'
+  post 'repos/:id/issues' => 'issues#create', as: 'create_issue'
   # get 'issues/:id' => 'issues#show'
   # get 'issues/:id/edit' => 'issues#edit'
   # patch 'issues/:id' => 'issues#update'
