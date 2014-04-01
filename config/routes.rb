@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # delete 'issues/:id' => 'issues#destroy'
 
   get 'repos/new' => 'repos#new', as: 'new_repo'
+  get 'repos/:id/edit' => 'repos#edit'
+  patch 'repos/:id' => 'repos#update'
+  get 'repos/:id' => 'repos#show', as: 'repo'
   post 'repos' => 'repos#create'
   get 'repos' => 'repos#index'
 

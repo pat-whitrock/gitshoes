@@ -18,12 +18,20 @@ class ReposController < ApplicationController
 	end
 
 	def show
+		@repo = Repo.find_by(:id => params[:id])
 	end
 
 	def update
+   		@repo = Repo.find_by(:id => params[:id])
+   		if @repo.update_attributes(repo_params)
+   			redirect_to @repo
+   		else
+   			render :edit
+   		end
 	end
 
 	def edit
+		@repo = Repo.find(params[:id])
 	end
 
 	def destroy
