@@ -1,8 +1,15 @@
-<h1>Show Repository</h1>
+<h1><%= @repo.name %></h1>
+<p><%= link_to 'View on Github', @repo.address %></p>
 
-<ol>
-<li><%= @repo.address %></li>
-<li><%= @repo.token %></li>
-</ol>
+<% if @repo.language %>
+	<h3><%= @repo.language %></h3>
+<% end %>
+
+<% if @repo.description %>
+	<p><strong>Description:</strong> <%= @repo.description %></p>
+<% end %>
+
+</br>
+
 <%= link_to 'Back', repos_path, class: "btn btn-primary" %>
 <%= link_to 'Create Issue', new_issue_path, class: "btn btn-primary" %>

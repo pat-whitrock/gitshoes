@@ -1,12 +1,10 @@
-
-
 <div class="col-md-8 col-md-offset-2">
 <h1>Repos Index: <%= @repos.count %> active</h1>
 
 <ol>
 	<% @repos.each do |repo| %>
 	<li>
-		<%= link_to repo.name, repo.address %>
+		<%= link_to repo.name, repo %>
 	</li>
 	<% end %>
 </ol>
