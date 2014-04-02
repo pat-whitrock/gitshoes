@@ -11,6 +11,7 @@ class ReposController < ApplicationController
 
 	def create
 		@repo = Repo.new(repo_params)
+		@repo.token = current_user.token
 		@repo.users << current_user
 		if @repo.save
 			redirect_to repos_path
