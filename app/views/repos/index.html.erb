@@ -4,9 +4,11 @@
 <h1>Repos Index: <%= @repos.count %> active</h1>
 
 <ol>
-<% @repos.each do |repo| %>
-<li><%= link_to repo.address, repo %></li>
-<% end %>
+	<% @repos.each do |repo| %>
+	<li>
+		<%= link_to repo.name, repo.address %>
+	</li>
+	<% end %>
 </ol>
 <%= link_to 'Add Repository', new_repo_path, class: "btn btn-primary" %>
 </div>
