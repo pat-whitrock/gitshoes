@@ -1,5 +1,5 @@
 <h1><%= @repo.name %></h1>
-<p><%= link_to 'View on Github', @repo.address %></p>
+<p><%= link_to 'View on Github', @repo.address, :target => "_blank" %></p>
 
 <% if @repo.language %>
 	<h3><%= @repo.language %></h3>
