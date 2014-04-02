@@ -1,7 +1,15 @@
-class SessionsController < ApplicationController
+class SessionsController < Devise::SessionsController
+	
+	def new
+		super
+	end
 
 	def create
-		redirect_to repos_path
+		super
+	end
+
+	def destroy
+		super
 	end
 
 end

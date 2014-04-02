@@ -1,5 +1,7 @@
 class ReposController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def index
 		@repos = Repo.all
 	end
