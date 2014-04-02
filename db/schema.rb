@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402134848) do
+ActiveRecord::Schema.define(version: 20140402212158) do
 
   create_table "issues", force: true do |t|
     t.string   "title"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20140402134848) do
     t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.text     "description"
+    t.string   "language"
+    t.integer  "open_issue_count"
+    t.datetime "github_created_at"
+    t.datetime "github_updated_at"
   end
 
   create_table "user_repos", force: true do |t|

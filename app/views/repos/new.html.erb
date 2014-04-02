@@ -4,6 +4,13 @@
 	<% @repos.each do |r| %>
 		<%= form_for @repo do |f| %>
 			<%= f.hidden_field :address, :value => r.html_url %>
+			<%= f.hidden_field :token, :value => '' %>
+			<%= f.hidden_field :name, :value => r.name.titleize %>
+			<%= f.hidden_field :description, :value => r.description %>
+			<%= f.hidden_field :language, :value => r.language %>
+			<%= f.hidden_field :open_issues_count, :value => r.open_issues_count %>
+			<%= f.hidden_field :github_created_at, :value => r.github_created_at %>
+			<%= f.hidden_field :github_updated_at, :value => r.github_updated_at %>
 			<%= f.submit r.name, class: "btn btn-primary btn-sm" %>
 		</br>
 		</br>

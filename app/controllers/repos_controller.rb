@@ -42,7 +42,9 @@ class ReposController < ApplicationController
 
 	private
 		def repo_params
-			params.require(:repo).permit(:address)
+			params.require(:repo).permit(:address, :token, :name,
+				:description, :language,
+				:github_created_at, :github_updated_at)
 		end
 
 end
