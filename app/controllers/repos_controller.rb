@@ -3,7 +3,7 @@ class ReposController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@repos = Repo.all
+		@repos = current_user.repos
 	end
 
 	def new
