@@ -1,21 +1,12 @@
 <h1>Add Repository</h1>
 
-<%= form_for @repo do |f| %>
-
-	<%= f.label :address %>
-	<%= f.text_field :address %>
-	</br>
-	<%= f.label :token %>
-	<%= f.text_field :token %>
-	</br>
-	<%= f.submit 'Add Repository'%>
-	
-<% end %>
-
 <ul>
 	<% @repos.each do |r| %>
-		<li>
-			<a href="<%= r.html_url %>"><%= r.name %></a>
-		</li>
+		<%= form_for @repo do |f| %>
+			<%= f.hidden_field :address, :value => r.html_url %>
+			<%= f.submit r.name, class: "btn btn-primary btn-sm" %>
+		</br>
+		</br>
+		<% end %>
 	<% end %>
 </ul>
