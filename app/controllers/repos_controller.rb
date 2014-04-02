@@ -1,7 +1,5 @@
 class ReposController < ApplicationController
 
-	before_action :authenticate_user!
-
 	def index
 		@repos = current_user.repos
 	end
@@ -11,6 +9,7 @@ class ReposController < ApplicationController
 	end
 
 	def create
+		@user = current_user
 		@repo = current_user.repos.build(repo_params)
 		if @repo.save
 			redirect_to repos_path
