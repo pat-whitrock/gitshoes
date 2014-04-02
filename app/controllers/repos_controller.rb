@@ -10,8 +10,9 @@ class ReposController < ApplicationController
 	end
 
 	def create
-		@user = current_user
-		@repo = current_user.repos.build(repo_params)
+		@repo = Repo.new(repo_params)
+		@repo.token = current_user.token
+		@repo.users << current_user
 		if @repo.save
 			redirect_to repos_path
 		else
