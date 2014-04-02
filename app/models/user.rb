@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
       user.image = auth.info.image
   	end
   end
+
+  def github_repos
+    client = Octokit::Client.new(:access_token => self.token)
+    client.repositories
+  end
 end

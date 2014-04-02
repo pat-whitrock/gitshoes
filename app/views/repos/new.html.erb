@@ -11,3 +11,11 @@
 	<%= f.submit 'Add Repository'%>
 	
 <% end %>
+
+<ul>
+	<% @repos.each do |r| %>
+		<li>
+			<a href="<%= r.html_url %>"><%= r.name %></a>
+		</li>
+	<% end %>
+</ul>

@@ -5,6 +5,7 @@ class ReposController < ApplicationController
 	end
 
 	def new
+		@repos = current_user.github_repos
 		@repo = Repo.new
 	end
 
