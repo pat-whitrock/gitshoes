@@ -23,7 +23,9 @@ X - Can post issues to Github from issue form
 X - Add users
 X - OAuth
 X - Devise
-O - Add name to user (from Github)
+X - Add name to user (from Github) and other stuff
+O - Display all available repos of user
+O - Transfer user token to repo upon creation, but allow it to be manually edited after
 O - Javascript front-end (embedded script tag)
 
 ## Usage
