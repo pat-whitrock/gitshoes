@@ -11,7 +11,7 @@ class ReposController < ApplicationController
 	end
 
 	def create
-		@repo = Repo.new(repo_params)
+		@repo = current_user.repos.build(repo_params)
 		if @repo.save
 			redirect_to repos_path
 		else
