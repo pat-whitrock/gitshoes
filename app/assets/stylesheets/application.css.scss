@@ -17,6 +17,13 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
+
+$navbar-height: 90px;
+$navbar-default-bg: #fff;
+$navbar-border-radius: 0px;
+$navbar-default-brand-color: #00A1D9;
+$navbar-default-border: #cbcbcb;
+
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
@@ -32,3 +39,9 @@ body {
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+
+.navbar-brand{
+	font-size: 1.8em;
+}
+
+

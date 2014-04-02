@@ -1,5 +1,8 @@
 
-<h1>Repos Index</h1>
+
+<div class="col-md-8 col-md-offset-2">
+<h1>Hi, <%= current_user.name %></h1>
+<h3>Repos Index: <%= @repos.count %> active</h3>
 
 <ol>
 <% @repos.each do |repo| %>
@@ -7,3 +10,4 @@
 <% end %>
 </ol>
 <%= link_to 'Add Repository', new_repo_path, class: "btn btn-primary" %>
+</div>
