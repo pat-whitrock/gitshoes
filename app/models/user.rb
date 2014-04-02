@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :user_repos
+  has_many :repos, through: :user_repos
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :omniauthable, :omniauth_providers => [:github]
