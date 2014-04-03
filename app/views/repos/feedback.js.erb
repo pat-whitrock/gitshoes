@@ -32,17 +32,41 @@ function main() {
         });
         css_link.appendTo('head');
 
-        var jsonp_url = <%= new_issue_url %>
-        $.ajax({
-          url:       jsonp_url,
-          data:      MySiteWidget,
-          dataType:  "html",
-          success:   function(data) {
-            // modify this part
-            $.each(data, function(i,d) {
-              $('.mysite-widget').append(d.template)
-            })
-          }
+        jQuery(document.body).append('<div id="helloDiv"></div>');
+
+        var feedback_div = $("<div>");
+        feedback_div.addClass('gitshoes-button')
+        feedback_div.css({
+          "float": "right",
+          "width": "20px",
+          "height": "87px",
+          "margin": "0px",
+          "padding": "0px",
+          "background-color": "blue",
+          "cursor": "pointer",
+          "box-sizing": "content-box",
+          "vertical-align": "baseline",
+          "display": "block",
+          "position": "fixed",
+          "background-image": "url(http://s3-ap-southeast-1.amazonaws.com/wk-static-files/webengage/feedbacktab/1lbkif8.png)",
+        });
+
+        feedback_div.appendTo('body');
+
+        var feedback_form = $("<div>");
+        feedback_form.appendTo('body');
+        feedback_form.hide();
+
+        var jsonp_url = 'http://localhost:3000/repos/3/issues/new'
+        $('div.gitshoes-button').click(function() { 
+          $.ajax({
+            url:       jsonp_url,
+            dataType:  "html",
+            success:   function(data) {
+              feedback_form.html(data);
+              feedback_form.show();
+            }
+          });
         });
     });
 }

@@ -23,6 +23,11 @@ class ReposController < ApplicationController
 
 	def show
 		@repo = Repo.find_by(:id => params[:id])
+		respond_to do |format|
+			format.html
+			format.js   # just renders messages/create.js.erb
+			format.json { render json: @repo }
+    end
 	end
 
 	def update
@@ -44,8 +49,9 @@ class ReposController < ApplicationController
 	def feedback
 		@repo = Repo.find(params[:id])
 		respond_to do |format|
-	      format.js   # just renders messages/create.js.erb
-    	end
+			format.js   # just renders messages/create.js.erb
+			format.json { render json: @repo }
+    end
 	end
 
 	private
