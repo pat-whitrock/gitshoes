@@ -24,9 +24,18 @@ X - Add users
 X - OAuth
 X - Devise
 X - Add name to user (from Github) and other stuff
-O - Display all available repos of user
-O - Transfer user token to repo upon creation, but allow it to be manually edited afterw
+X - Display all available repos of user
+X - Transfer user token to repo upon creation, but allow it to be manually edited after
+
 O - Javascript front-end (embedded script tag)
+X - Scaffold feedback widget
+O - Create feedback form
+O - Include feedback form in widget
+O - Hide widget form on document ready
+O - Show widget when floating feedback tab is clicked
+O - Backend should receive POST request from widget
+O - Backend should forward request from widget to github issues
+O - Add validations and sanitation to widget
 
 ## Usage
 
