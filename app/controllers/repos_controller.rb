@@ -1,4 +1,5 @@
 class ReposController < ApplicationController
+	protect_from_forgery :except => :show
 
 	def index
 		@repos = current_user.repos
@@ -22,15 +23,20 @@ class ReposController < ApplicationController
 
 	def show
 		@repo = Repo.find_by(:id => params[:id])
+		respond_to do |format|
+			format.html
+			format.js   # just renders messages/create.js.erb
+			format.json { render json: @repo }
+    end
 	end
 
 	def update
-   		@repo = Repo.find_by(:id => params[:id])
-   		if @repo.update_attributes(repo_params)
-   			redirect_to @repo
-   		else
-   			render :edit
-   		end
+ 		@repo = Repo.find_by(:id => params[:id])
+ 		if @repo.update_attributes(repo_params)
+ 			redirect_to @repo
+ 		else
+ 			render :edit
+ 		end
 	end
 
 	def edit
@@ -43,10 +49,18 @@ class ReposController < ApplicationController
 		redirect_to repos_path
 	end
 
+	def feedback
+		@repo = Repo.find(params[:id])
+		respond_to do |format|
+			format.js   # just renders messages/create.js.erb
+			format.json { render json: @repo }
+    end
+	end
+
 	private
 		def repo_params
 			params.require(:repo).permit(:address, :token, :name,
-				:description, :language,
+				:description, :language, :full_name,
 				:github_created_at, :github_updated_at)
 		end
 

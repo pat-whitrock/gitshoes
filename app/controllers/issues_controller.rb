@@ -4,12 +4,17 @@ class IssuesController < ApplicationController
 	# end
 
 	def new
+		@repo = Repo.find(params[:id])
 		@issue = Issue.new
+		respond_to do |format|
+			format.js   # just renders messages/create.js.erb
+			format.html { render :partial => "new" }
+    end
 	end
 
 	def create
-		Issue.create_github_issue(issue_params)
-		redirect_to repo_path
+		@repo = Repo.find(params[:id])
+		Issue.create_github_issue(issue_params, @repo)
 	end
 
 	# def show
