@@ -13,16 +13,16 @@
       <% else %>
         <%= link_to 'GitShoes', root_path, class: 'navbar-brand' %>
       <% end %>
-      <ul class="nav navbar-nav navbar-right">
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
         <% if user_signed_in? %>
           <li class="<%= 'active' if current_page?(repos_path) %>"><%= link_to 'Active Repos', repos_path %></li>
           <li class="<%= 'active' if current_page?(new_repo_path) %>"><%= link_to 'Github Repos', new_repo_path %></li>
         <% end %>
       </ul>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><a href="#">Hi, <%= current_user.name %>!</a></li>
