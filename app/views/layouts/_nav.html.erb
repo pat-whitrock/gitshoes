@@ -8,7 +8,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">GitShoes</a>
+      <% if user_signed_in? %>
+        <%= link_to 'GitShoes', repos_path, class: 'navbar-brand' %>
+      <% else %>
+        <%= link_to 'GitShoes', root_path, class: 'navbar-brand' %>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li class="<%= 'active' if current_page?(repos_path) %>"><%= link_to 'Active Repos', repos_path %></li>
+          <li class="<%= 'active' if current_page?(new_repo_path) %>"><%= link_to 'Github Repos', new_repo_path %></li>
+        <% end %>
+      </ul>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,7 +28,7 @@
           <li><a href="#">Hi, <%= current_user.name %>!</a></li>
           <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %> </li>
         <% else %>
-          <li><a href="#">Please sign in</a></li>
+          <li><%= link_to 'Please sign in', user_omniauth_authorize_path(:github) %></li>
         <% end %>
       </ul>
     

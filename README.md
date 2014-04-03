@@ -25,7 +25,7 @@ X - OAuth
 X - Devise
 X - Add name to user (from Github) and other stuff
 O - Display all available repos of user
-O - Transfer user token to repo upon creation, but allow it to be manually edited after
+O - Transfer user token to repo upon creation, but allow it to be manually edited afterw
 O - Javascript front-end (embedded script tag)
 
 ## Usage
