@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   get '/auth/github' => 'auth#github', as: 'github_login'
   get '/auth/github/callback' => 'sessions#create', as: 'github_callback'
 
+
+  get 'repos/:id/feedback' => 'repos#feedback', as: 'feedback'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

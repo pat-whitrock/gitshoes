@@ -1,4 +1,5 @@
 class ReposController < ApplicationController
+	protect_from_forgery :except => :feedback
 
 	def index
 		@repos = current_user.repos
@@ -38,6 +39,13 @@ class ReposController < ApplicationController
 	end
 
 	def destroy
+	end
+
+	def feedback
+		@repo = Repo.find(params[:id])
+		respond_to do |format|
+	      format.js   # just renders messages/create.js.erb
+    	end
 	end
 
 	private
