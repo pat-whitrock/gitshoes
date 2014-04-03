@@ -1,15 +1,19 @@
-<h1><%= @repo.name %></h1>
-<p><%= link_to 'View on Github', @repo.address, :target => "_blank" %></p>
+<div class="page-header">
+  <h1>
+    <%= @repo.name %> 
+    <% if @repo.language != "" %>
+      <small>// <%= @repo.language %></small>
+    <% end %>
+  </h1>
+</div>
 
-<% if @repo.language %>
-	<h3><%= @repo.language %></h3>
-<% end %>
-
-<% if @repo.description %>
+<% if @repo.description != "" %>
 	<p><strong>Description:</strong> <%= @repo.description %></p>
 <% end %>
 
 </br>
 
 <%= link_to 'Back', repos_path, class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_repo_path(@repo), class: "btn btn-primary" %>
+  <%= link_to 'Github', @repo.address, :target => "_blank", class: "btn btn-primary" %>
 <%= link_to 'Create Issue', new_issue_path, class: "btn btn-primary" %>
