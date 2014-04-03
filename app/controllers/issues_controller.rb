@@ -14,7 +14,7 @@ class IssuesController < ApplicationController
 
 	def create
 		@repo = Repo.find(params[:id])
-		Issue.create_github_issue(issue_params)
+		Issue.create_github_issue(issue_params, @repo)
 	end
 
 	# def show
