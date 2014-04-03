@@ -32,11 +32,11 @@ function main() {
         });
         css_link.appendTo('head');
 
-        var jsonp_url = <%= raw widgets_url(format: "json").to_json %>;
+        var jsonp_url = <%= new_issue_url %>
         $.ajax({
           url:       jsonp_url,
           data:      MySiteWidget,
-          dataType:  "jsonp",
+          dataType:  "html",
           success:   function(data) {
             // modify this part
             $.each(data, function(i,d) {
