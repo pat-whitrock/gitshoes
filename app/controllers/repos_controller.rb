@@ -15,7 +15,7 @@ class ReposController < ApplicationController
 		@repo.token = current_user.token
 		@repo.users << current_user
 		if @repo.save
-			redirect_to repos_path
+			redirect_to @repo
 		else
 			render :new
 		end
