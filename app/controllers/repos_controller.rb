@@ -38,6 +38,9 @@ class ReposController < ApplicationController
 	end
 
 	def destroy
+		@repo = Repo.find(params[:id])
+		@repo.destroy
+		redirect_to repos_path
 	end
 
 	private

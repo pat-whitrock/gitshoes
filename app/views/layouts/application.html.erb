@@ -8,10 +8,11 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
-<%= render 'layouts/nav' %>
-
-<div class="container">
-	<%= yield %>
-</div>
+	<div class="bg-container">
+		<%= render 'layouts/nav' %>
+		<div class="container">
+			<%= yield %>
+		</div>
+	</div>
 </body>
 </html>

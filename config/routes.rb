@@ -15,11 +15,12 @@ Rails.application.routes.draw do
   # delete 'issues/:id' => 'issues#destroy'
 
   get 'repos/new' => 'repos#new', as: 'new_repo'
-  get 'repos/:id/edit' => 'repos#edit'
+  get 'repos/:id/edit' => 'repos#edit', as: 'edit_repo'
   patch 'repos/:id' => 'repos#update'
   get 'repos/:id' => 'repos#show', as: 'repo'
   post 'repos' => 'repos#create'
   get 'repos' => 'repos#index'
+  delete 'repos/:id' => 'repos#destroy', as: 'delete_repo'
 
   get '/auth/github' => 'auth#github', as: 'github_login'
   get '/auth/github/callback' => 'sessions#create', as: 'github_callback'
