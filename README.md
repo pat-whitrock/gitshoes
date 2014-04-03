@@ -37,6 +37,14 @@ O - Backend should receive POST request from widget
 O - Backend should forward request from widget to github issues
 O - Add validations and sanitation to widget
 
+O - Embed our script tag in their head/body that does:
+O - Append feedback
+O - Inject a stylesheet for feedback
+O - Inject a form
+O - Bind click action to feedback button that shows form
+O - Bind submit event to form
+O - The rest happens on our server (send to github, send back response to user)
+
 ## Usage
 
 How do users use your app?
