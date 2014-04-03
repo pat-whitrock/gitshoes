@@ -6,6 +6,7 @@
 			<%= f.hidden_field :address, :value => r.html_url %>
 			<%= f.hidden_field :token, :value => '' %>
 			<%= f.hidden_field :name, :value => r.name.titleize %>
+			<%= f.hidden_field :name, :value => r.full_name %>
 			<%= f.hidden_field :description, :value => r.description %>
 			<%= f.hidden_field :language, :value => r.language %>
 			<%= f.hidden_field :open_issues_count, :value => r.open_issues_count %>

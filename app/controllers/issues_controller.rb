@@ -13,8 +13,8 @@ class IssuesController < ApplicationController
 	end
 
 	def create
+		@repo = Repo.find(params[:id])
 		Issue.create_github_issue(issue_params)
-		redirect_to repo_path
 	end
 
 	# def show
