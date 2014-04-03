@@ -1,5 +1,5 @@
 class ReposController < ApplicationController
-	protect_from_forgery :except => :feedback
+	protect_from_forgery :except => :show
 
 	def index
 		@repos = current_user.repos
@@ -31,12 +31,12 @@ class ReposController < ApplicationController
 	end
 
 	def update
-   		@repo = Repo.find_by(:id => params[:id])
-   		if @repo.update_attributes(repo_params)
-   			redirect_to @repo
-   		else
-   			render :edit
-   		end
+ 		@repo = Repo.find_by(:id => params[:id])
+ 		if @repo.update_attributes(repo_params)
+ 			redirect_to @repo
+ 		else
+ 			render :edit
+ 		end
 	end
 
 	def edit
