@@ -23,6 +23,8 @@ $navbar-default-bg: #fff;
 $navbar-border-radius: 0px;
 $navbar-default-brand-color: #00A1D9;
 $navbar-default-border: #dedede;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+$font-family-sans-serif: 'Open Sans', sans-serif;
 
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
@@ -61,6 +63,3 @@ html, body {
 	}
 }
 
-.thumbnail{
-  height: 360px;
-}

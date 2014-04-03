@@ -13,7 +13,7 @@
         <% image = "shoes_" + rand(1..9).to_s + ".png" %>
         <%= image_tag image, size: "200x100" %>
         <div class="caption">
-          <h3><%= link_to repo.name, repo %></h3>
+          <h4><%= link_to repo.name, repo %></h4>
           <% if repo.description != "" %>
           <p><%= repo.description %></p>
           <% else %>
