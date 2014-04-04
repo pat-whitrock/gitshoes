@@ -47,9 +47,8 @@ function main() {
 
         gitshoesFloater.appendTo('body');
 
-        var gitshoesFormDiv = $("<div>");
+        var gitshoesFormDiv = $("<div class='gitshoes-form'>");
         gitshoesFormDiv.appendTo('body');
-        gitshoesFormDiv.hide();
 
         var gitshoesFormUrl = "<%= new_issue_url(@repo) %>"
         $('div.gitshoes-button').click(function() { 
@@ -58,7 +57,8 @@ function main() {
             dataType:  "html",
             success:   function(data) {
               gitshoesFormDiv.html(data);
-              gitshoesFormDiv.show();
+              gitshoesFloater.animate({'margin-bottom': '300px'});
+              gitshoesFormDiv.animate({'margin-bottom': '300px'});
             }
           });
         });
