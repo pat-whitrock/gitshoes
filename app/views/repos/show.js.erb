@@ -1,71 +1,103 @@
 (function() {
-var jQuery;
-if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.11.0') {
+  var jQuery;
+  if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.11.0') {
     var script_tag = document.createElement('script');
     script_tag.setAttribute("type","text/javascript");
     script_tag.setAttribute("src", "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js");
     if (script_tag.readyState) {
       script_tag.onreadystatechange = function () { // For old versions of IE
-          if (this.readyState == 'complete' || this.readyState == 'loaded') {
-              scriptLoadHandler();
-          }
+        if (this.readyState == 'complete' || this.readyState == 'loaded') {
+          scriptLoadHandler();
+        }
       };
     } else {
       script_tag.onload = scriptLoadHandler;
     }
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
-} else {
+  } else {
     jQuery = window.jQuery;
     main();
-}
+  }
 
-function scriptLoadHandler() {
+  function scriptLoadHandler() {
     jQuery = window.jQuery.noConflict(true);
     main();
-}
-function main() {
+  }
+  function main() {
     jQuery(document).ready(function($) {
-        
-        var gitshoesFloater = $("<div id='gitshoes-button'>");
-        gitshoesFloater.text("Feedback");
-        gitshoesFloater.css({
-          "width": "400px",
-          "height": "35px",
-          "margin": "0px",
-          "font-size": "18px",
-          "text-align": "center",
-          "padding": "5px",
-          "border-top-left-radius": "5px",
-          "border-top-right-radius": "5px",
-          "background-color": "#357ebd",
-          "color": "black",
-          "cursor": "pointer",
-          "position": "fixed",
-          "right": 30,
-          "bottom": 0
+
+      WebFontConfig = {
+        google: { families: [ 'Open+Sans::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+      
+      var gitshoesInsert = $("<div id='feedback-container'><div id='gitshoes-button'></div></div>");
+      gitshoesInsert.css({
+        "position": "fixed",
+        "right": 30,
+        "bottom": 0,
+        "width": "300px"
+      });
+      gitshoesInsert.appendTo('body');
+
+      var gitshoesFloater = $('#gitshoes-button')
+      gitshoesFloater.text("Feedback");
+      gitshoesFloater.css({
+        "width": "100px",
+        "height": "35px",
+        "margin": "0px",
+        "font-size": "18px",
+        "text-align": "center",
+        "padding": "5px",
+        "border-top-left-radius": "5px",
+        "border-top-right-radius": "5px",
+        "background-color": "#357ebd",
+        "color": "white",
+        "cursor": "pointer",
+        "float": "right"
+      });
+
+
+      var gitshoesFormDiv = $("<div id='gitshoes-form'></div>");
+      gitshoesFormDiv.css({
+        "padding": "5px 20px 5px 20px",
+        "background-color": "white",
+        "width": "300px",
+        "float": "right",
+        "border": "1px solid #9a9a9a",
+        "border-top-left-radius": "5px"
+      });
+      gitshoesFormDiv.appendTo('#feedback-container');
+      
+
+        // ajax starts here
+        var gitshoesFormUrl = "<%= new_issue_url(@repo) %>";
+        jQuery.ajax({
+          url:       gitshoesFormUrl,
+          dataType:  "html",
+          success:   function(data) {
+            jQuery('#gitshoes-form').css({ "display": "none"});
+            jQuery('#gitshoes-form').html(data);
+          }
         });
 
-        gitshoesFloater.appendTo('body');
+        // click event for slide up or slide down
+        jQuery('div#gitshoes-button').on('click', function() { 
+          if(jQuery('#gitshoes-form').css("display") == "none"){
+            jQuery('#gitshoes-form').slideDown();
+          } else {
+            jQuery('#gitshoes-form').slideUp();
+          }
 
-        var gitshoesFormDiv = $("<div id='gitshoes-form'>");
-        gitshoesFormDiv.css({
-          "right": 30,
-          "bottom": "-500px"
         });
-        gitshoesFormDiv.insertAfter('#gitshoes-button');
-
-        var gitshoesFormUrl = "<%= new_issue_url(@repo) %>"
-        $('div#gitshoes-button').click(function() { 
-          $.ajax({
-            url:       gitshoesFormUrl,
-            dataType:  "html",
-            success:   function(data) {
-              gitshoesFloater.html('Feedback</br></br>' + data);
-              gitshoesFloater.animate({'margin-bottom': '200px'});
-              gitshoesFormDiv.animate({'margin-bottom': '300px'});
-            }
-          });
-        });
-    });
+      });
 }
 })();
