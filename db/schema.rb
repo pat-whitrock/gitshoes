@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403201017) do
+ActiveRecord::Schema.define(version: 20140404175657) do
 
   create_table "issues", force: true do |t|
     t.string   "title"
@@ -65,5 +65,33 @@ ActiveRecord::Schema.define(version: 20140403201017) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "widgets", force: true do |t|
+    t.string   "color"
+    t.string   "font_color"
+    t.string   "background_color"
+    t.string   "tab_font"
+    t.integer  "tab_font_size"
+    t.string   "tab_text"
+    t.integer  "tab_width"
+    t.integer  "tab_height"
+    t.integer  "tab_edge_radius"
+    t.string   "field_font"
+    t.integer  "field_font_size"
+    t.string   "title_field_text"
+    t.string   "description_field_text"
+    t.string   "button_font"
+    t.integer  "button_font_size"
+    t.string   "button_text"
+    t.integer  "form_width"
+    t.integer  "form_border_thickness"
+    t.string   "form_border_type"
+    t.integer  "form_border_color"
+    t.integer  "form_border_radius"
+    t.string   "orientation"
+    t.integer  "offset"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
