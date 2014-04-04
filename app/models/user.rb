@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
         #:recoverable, :rememberable, :trackable, :validatable, 
 
   def self.find_for_github_oauth(auth)
-  	where(auth.slice(:provider, :token)).first_or_create do |user|
+  	where(:token => auth["credentials"]["token"]).first_or_create do |user|
   		user.provider = auth.provider
   		user.token = auth.credentials.token
       user.email = auth.info.email
