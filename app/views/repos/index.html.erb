@@ -9,12 +9,12 @@
 <div class="row">
   <% @repos.each do |repo| %>
     <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
+      <div class="thumbnail border-fade">
         <% image = "shoes_" + rand(1..9).to_s + ".png" %>
         <%= image_tag image, size: "200x100" %>
         <div class="caption">
           <h4><%= link_to repo.name, repo %></h4>
-          <% if repo.description != "" %>
+          <% if repo.description != "" && repo.description != nil %>
           <p><%= repo.description %></p>
           <% else %>
           <p>...</p>
