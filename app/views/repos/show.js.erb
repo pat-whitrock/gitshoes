@@ -26,10 +26,10 @@ function scriptLoadHandler() {
 function main() {
     jQuery(document).ready(function($) {
         
-        var gitshoesFloater = $("<div class='gitshoes-button'>");
+        var gitshoesFloater = $("<div id='gitshoes-button'>");
         gitshoesFloater.text("Feedback");
         gitshoesFloater.css({
-          "width": "120px",
+          "width": "400px",
           "height": "35px",
           "margin": "0px",
           "font-size": "18px",
@@ -38,7 +38,7 @@ function main() {
           "border-top-left-radius": "5px",
           "border-top-right-radius": "5px",
           "background-color": "#357ebd",
-          "color": "white",
+          "color": "black",
           "cursor": "pointer",
           "position": "fixed",
           "right": 30,
@@ -47,17 +47,21 @@ function main() {
 
         gitshoesFloater.appendTo('body');
 
-        var gitshoesFormDiv = $("<div class='gitshoes-form'>");
-        gitshoesFormDiv.appendTo('body');
+        var gitshoesFormDiv = $("<div id='gitshoes-form'>");
+        gitshoesFormDiv.css({
+          "right": 30,
+          "bottom": "-500px"
+        });
+        gitshoesFormDiv.insertAfter('#gitshoes-button');
 
         var gitshoesFormUrl = "<%= new_issue_url(@repo) %>"
-        $('div.gitshoes-button').click(function() { 
+        $('div#gitshoes-button').click(function() { 
           $.ajax({
             url:       gitshoesFormUrl,
             dataType:  "html",
             success:   function(data) {
-              gitshoesFormDiv.html(data);
-              gitshoesFloater.animate({'margin-bottom': '300px'});
+              gitshoesFloater.html('Feedback</br></br>' + data);
+              gitshoesFloater.animate({'margin-bottom': '200px'});
               gitshoesFormDiv.animate({'margin-bottom': '300px'});
             }
           });
