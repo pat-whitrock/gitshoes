@@ -2,7 +2,8 @@ class ReposController < ApplicationController
 	protect_from_forgery :except => :show
 
 	def index
-		@repos = current_user.repos.order("name ASC")
+		@repos = current_user.repos
+		@repos_array = current_user.repos.order("name ASC").each_slice(4).to_a
 	end
 
 	def new
