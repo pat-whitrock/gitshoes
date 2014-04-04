@@ -45,6 +45,9 @@ O - Bind click action to feedback button that shows form
 O - Bind submit event to form
 O - The rest happens on our server (send to github, send back response to user)
 
+O - Repo Edit page can alter widget (color, size, edges, text, font, etc)
+O - Repo Edit page has placeit for desktop, laptop and mobile showing the widget
+
 ## Usage
 
 How do users use your app?
