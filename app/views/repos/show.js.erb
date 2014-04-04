@@ -26,21 +26,23 @@ function scriptLoadHandler() {
 function main() {
     jQuery(document).ready(function($) {
         
-        var gitshoesFloater = $("<div>");
-        gitshoesFloater.addClass('gitshoes-button')
+        var gitshoesFloater = $("<div class='gitshoes-button'>");
+        gitshoesFloater.text("Feedback");
         gitshoesFloater.css({
-          "float": "right",
-          "width": "20px",
-          "height": "87px",
+          "width": "120px",
+          "height": "35px",
           "margin": "0px",
-          "padding": "0px",
-          "background-color": "blue",
+          "font-size": "18px",
+          "text-align": "center",
+          "padding": "5px",
+          "border-top-left-radius": "5px",
+          "border-top-right-radius": "5px",
+          "background-color": "#357ebd",
+          "color": "white",
           "cursor": "pointer",
-          "box-sizing": "content-box",
-          "vertical-align": "baseline",
-          "display": "block",
           "position": "fixed",
-          "background-image": "url(http://s3-ap-southeast-1.amazonaws.com/wk-static-files/webengage/feedbacktab/1lbkif8.png)",
+          "right": 30,
+          "bottom": 0
         });
 
         gitshoesFloater.appendTo('body');
