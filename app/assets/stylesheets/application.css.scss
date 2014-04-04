@@ -67,3 +67,17 @@ html, body {
 	-webkit-box-shadow: 0 0 10px #dedede;
 	box-shadow: 0 0 10px #dedede;
 }
+
+.row{
+	display: table-row;
+}
+
+.item{
+	display: inline-block;
+	vertical-align: top;
+	height: 100%;
+}
+
+.thumbnail img{
+	max-height: 200px;
+}
