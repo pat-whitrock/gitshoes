@@ -15,6 +15,10 @@ class IssuesController < ApplicationController
 	def create
 		@repo = Repo.find(params[:id])
 		Issue.create_github_issue(issue_params, @repo)
+
+		respond_to do |format|
+			format.html { render :partial => "create" }
+    end
 	end
 
 	# def show
