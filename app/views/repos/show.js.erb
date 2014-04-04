@@ -26,37 +26,43 @@ function scriptLoadHandler() {
 function main() {
     jQuery(document).ready(function($) {
         
-        var gitshoesFloater = $("<div>");
-        gitshoesFloater.addClass('gitshoes-button')
+        var gitshoesFloater = $("<div id='gitshoes-button'>");
+        gitshoesFloater.text("Feedback");
         gitshoesFloater.css({
-          "float": "right",
-          "width": "20px",
-          "height": "87px",
+          "width": "400px",
+          "height": "35px",
           "margin": "0px",
-          "padding": "0px",
-          "background-color": "blue",
+          "font-size": "18px",
+          "text-align": "center",
+          "padding": "5px",
+          "border-top-left-radius": "5px",
+          "border-top-right-radius": "5px",
+          "background-color": "#357ebd",
+          "color": "black",
           "cursor": "pointer",
-          "box-sizing": "content-box",
-          "vertical-align": "baseline",
-          "display": "block",
           "position": "fixed",
-          "background-image": "url(http://s3-ap-southeast-1.amazonaws.com/wk-static-files/webengage/feedbacktab/1lbkif8.png)",
+          "right": 30,
+          "bottom": 0
         });
 
         gitshoesFloater.appendTo('body');
 
-        var gitshoesFormDiv = $("<div>");
-        gitshoesFormDiv.appendTo('body');
-        gitshoesFormDiv.hide();
+        var gitshoesFormDiv = $("<div id='gitshoes-form'>");
+        gitshoesFormDiv.css({
+          "right": 30,
+          "bottom": "-500px"
+        });
+        gitshoesFormDiv.insertAfter('#gitshoes-button');
 
         var gitshoesFormUrl = "<%= new_issue_url(@repo) %>"
-        $('div.gitshoes-button').click(function() { 
+        $('div#gitshoes-button').click(function() { 
           $.ajax({
             url:       gitshoesFormUrl,
             dataType:  "html",
             success:   function(data) {
-              gitshoesFormDiv.html(data);
-              gitshoesFormDiv.show();
+              gitshoesFloater.html('Feedback</br></br>' + data);
+              gitshoesFloater.animate({'margin-bottom': '200px'});
+              gitshoesFormDiv.animate({'margin-bottom': '300px'});
             }
           });
         });
