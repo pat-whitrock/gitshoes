@@ -9,7 +9,7 @@
 <div class="row">
   <% @repos.each do |repo| %>
     <div class="item col-sm-6 col-md-3">
-      <div class="thumbnail">
+      <div class="thumbnail border-fade">
         <% image = "shoes_" + rand(1..9).to_s + ".png" %>
         <%= image_tag image, size: "200x100" %>
         <div class="caption">
