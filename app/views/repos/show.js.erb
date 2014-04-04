@@ -51,12 +51,12 @@
       var gitshoesFloater = $('#gitshoes-button')
       gitshoesFloater.text("Feedback");
       gitshoesFloater.css({
-        "width": "100px",
+        "width": "auto",
         "height": "35px",
         "margin": "0px",
         "font-size": "18px",
         "text-align": "center",
-        "padding": "5px",
+        "padding": "5px 10px 5px 10px",
         "border-top-left-radius": "5px",
         "border-top-right-radius": "5px",
         "background-color": "#357ebd",
@@ -76,28 +76,43 @@
         "border-top-left-radius": "5px"
       });
       gitshoesFormDiv.appendTo('#feedback-container');
-      
 
-        // ajax starts here
-        var gitshoesFormUrl = "<%= new_issue_url(@repo) %>";
-        jQuery.ajax({
-          url:       gitshoesFormUrl,
-          dataType:  "html",
-          success:   function(data) {
-            jQuery('#gitshoes-form').css({ "display": "none"});
-            jQuery('#gitshoes-form').html(data);
-          }
-        });
+      //save formDiv in a variable
+      var formDiv = jQuery('#gitshoes-form')
 
-        // click event for slide up or slide down
-        jQuery('div#gitshoes-button').on('click', function() { 
-          if(jQuery('#gitshoes-form').css("display") == "none"){
-            jQuery('#gitshoes-form').slideDown();
-          } else {
-            jQuery('#gitshoes-form').slideUp();
-          }
-
-        });
+      // ajax starts here
+      var gitshoesFormUrl = "<%= new_issue_url(@repo) %>";
+      jQuery.ajax({
+        url:       gitshoesFormUrl,
+        dataType:  "html",
+        success:   function(data) {
+          formDiv.css({ "display": "none"});
+          formDiv.html(data);
+          jQuery('#new_issue').on("ajax:success", function(e, data, status, xhr){
+            formDiv.slideUp();
+            jQuery('#issue_email').val("");
+            jQuery('#issue_title').val("");
+            jQuery('#issue_body').val("");
+            jQuery('#issue_body').val("");
+            jQuery('#gitshoes-button').fadeOut().html('Thank you!').delay(500).fadeIn();
+          });
+        }
       });
-}
+
+      // click event for slide up or slide down
+      jQuery('div#gitshoes-button').on('click', function() { 
+        if (jQuery('#gitshoes-button').html() == 'Thank you!'){
+          jQuery('#gitshoes-button').html('Feedback');
+        };
+
+        if(formDiv.css("display") == "none"){
+          formDiv.slideDown();
+        } else {
+          formDiv.slideUp();
+        }
+      });
+
+
+    });
+  }
 })();
