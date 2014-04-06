@@ -7,7 +7,12 @@ class ReposController < ApplicationController
 	end
 
 	def new
-		@repos = current_user.github_repos
+		current_user_repos_urls = current_user.repos.map do |repo|
+			repo.address
+		end
+		@repos = current_user.github_repos.reject { |repo|
+			current_user_repos_urls.include?(repo.html_url)
+		}
 		@repo = Repo.new
 	end
 
