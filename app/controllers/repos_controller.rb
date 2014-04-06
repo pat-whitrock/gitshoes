@@ -24,7 +24,6 @@ class ReposController < ApplicationController
 
 	def show
 		@repo = Repo.find_by(:id => params[:id])
-		@widget = Widget.find_by(:id => params[:id])
 		respond_to do |format|
 			format.html
 			format.js   # just renders messages/create.js.erb
