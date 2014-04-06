@@ -2,7 +2,8 @@ class CreateWidgets < ActiveRecord::Migration
   def change
     create_table :widgets do |t|
       t.string  :color
-      t.string  :font_color
+      t.string  :tab_font_color
+      t.string  :body_font_color
       t.string  :background_color
       t.string  :tab_font
       t.integer :tab_font_size
