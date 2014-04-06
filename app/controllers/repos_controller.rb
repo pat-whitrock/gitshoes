@@ -7,7 +7,12 @@ class ReposController < ApplicationController
 	end
 
 	def new
-		@repos = current_user.github_repos
+		current_user_repos_urls = current_user.repos.map do |repo|
+			repo.address
+		end
+		@repos = current_user.github_repos.reject { |repo|
+			current_user_repos_urls.include?(repo.html_url)
+		}
 		@repo = Repo.new
 	end
 
@@ -24,7 +29,6 @@ class ReposController < ApplicationController
 
 	def show
 		@repo = Repo.find_by(:id => params[:id])
-		@widget = Widget.find_by(:id => params[:id])
 		respond_to do |format|
 			format.html
 			format.js   # just renders messages/create.js.erb
