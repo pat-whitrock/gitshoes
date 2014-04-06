@@ -1,5 +1,8 @@
 class ReposController < ApplicationController
-	protect_from_forgery :except => :show
+	# protect_from_forgery :except => :show
+	protect_from_forgery :except => [:show]
+
+	skip_before_filter :authenticate_user!, :only => [:create, :new]
 
 	def index
 		@repos = current_user.repos
