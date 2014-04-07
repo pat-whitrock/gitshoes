@@ -13,6 +13,10 @@ class ReposController < ApplicationController
 		@repos_array = @repos.order("name ASC").each_slice(4).to_a
 	end
 
+	def sidebar
+		@repos = current_user.repos.order("name ASC").each_slice(4).to_a
+	end
+
 	def new
 		current_user_repos_urls = current_user.repos.map do |repo|
 			repo.address
@@ -37,7 +41,7 @@ class ReposController < ApplicationController
 	def show
 		@repo = Repo.find_by(:id => params[:id])
 		respond_to do |format|
-			format.html
+			format.html { render :partial => "show"}
 			format.js   # just renders messages/create.js.erb
 			format.json { render json: @repo }
     end
