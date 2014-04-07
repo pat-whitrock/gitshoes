@@ -9,7 +9,7 @@
 		<% @repos.each do |r| %>
 			<tr>
 				<td><%= r.name.titleize %></td>
-				<td><%= link_to r.html_url, r.html_url %></td> 
+				<td><%= link_to r.html_url, r.html_url, :target => "_blank" %></td> 
 				<td>
 					<%= form_for @repo do |f| %>
 					<%= f.hidden_field :address, :value => r.html_url %>
