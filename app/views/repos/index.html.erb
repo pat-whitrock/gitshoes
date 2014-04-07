@@ -1,16 +1,30 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="page-header">
-		  <h1>Your Shoebox <small>// <%= @repos.count %> active</small>
-		  <%= link_to 'Add Repository', new_repo_path, class: "btn btn-primary pull-right" %></h1>
-		</div>
-	</div>
-  <div class="row">
-    <div class="col-md-3">
-      <%= render 'sidebar' %>
+      <h1>Your Shoebox <small>// <%= @repos.count %> active</small>
+        <%= link_to 'Add Repository', new_repo_path, class: "btn btn-primary pull-right" %></h1>
+      </div>
     </div>
-    <div class="col-md-9">
-      <%= 'your repo here...' %>
+    <% if @repos.count == 0 %>
+    <div class="row row-shoebox">
+    <div class="col-md-4">
+        <%= image_tag 'shoebox.png', size: "200x200", class: "shoebox" %>
+      </div>
+      <div class="col-md-8">
+        <h2>This is your shoebox!</h2>
+        <p>Currently, your shoebox does not have any active repositories.</p>
+        <p>Click add repository button to start activating your repository with Gitshoes.</p>
+        <%= link_to 'Add Repository', new_repo_path, class: "btn btn-primary btn-lg" %>
+      </div>
     </div>
+    <% else %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= render 'sidebar' %>
+      </div>
+      <div class="col-md-9">
+        <%= 'your repo here...' %>
+      </div>
+    </div>
+    <% end %>
   </div>
-</div>
