@@ -1,6 +1,8 @@
 class ReposController < ApplicationController
-	protect_from_forgery :except => :show
+
+	protect_from_forgery :except => [:show]
 	before_action :set_cache_buster, :only => [:new]
+	skip_before_filter :authenticate_user!, :only => [:create, :new]
 
   def set_cache_buster
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"

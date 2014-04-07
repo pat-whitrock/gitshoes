@@ -1,7 +1,7 @@
 class IssuesController < ApplicationController
-
-	# def index
-	# end
+	protect_from_forgery :except => [:new, :show, :create]
+	after_filter :set_access_control_headers
+	skip_before_filter :authenticate_user!, :only => [:create, :new]
 
 	def new
 		@repo = Repo.find(params[:id])
