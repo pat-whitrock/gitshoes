@@ -20,4 +20,4 @@
 
 <%= link_to 'Edit', edit_repo_path(@repo), class: "btn btn-primary" %>
 <%= link_to 'Github', @repo.address, :target => "_blank", class: "btn btn-primary" %>
-<%= link_to 'Remove', delete_repo_path(@repo), :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger btn-primary" %>
+<%= link_to 'Remove', delete_repo_path(@repo), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-primary" %>
