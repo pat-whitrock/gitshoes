@@ -1,11 +1,9 @@
-<div class="page-header">
-  <h1>
-    <%= @repo.name %> 
-    <% if @repo.language != "" %>
-      <small>// <%= @repo.language %></small>
-    <% end %>
-  </h1>
-</div>
+<h2>
+  <%= @repo.name %> 
+  <% if @repo.language != "" %>
+    <small>// <%= @repo.language %></small>
+  <% end %>
+</h2>
 
 <% if @repo.description != "" %>
 	<p><strong>Description:</strong> <%= @repo.description %></p>
