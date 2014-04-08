@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
-  <script src="http://localhost:3000/repos/1.js" type='application/javascript'></script>
+  <script src="<%= repo_url(Repo.first) %>.js" type='application/javascript'></script>
 </head>
 <body>
 		<%= render 'layouts/nav' %>
