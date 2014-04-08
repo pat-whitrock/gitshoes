@@ -6,7 +6,7 @@ $(document).ready () ->
   firstItem = $('.list-group-item').sort( (a, b) ->
     contentA = parseInt( $(a).attr('data-repo-id'));
     contentB = parseInt( $(b).attr('data-repo-id'));
-    return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+    return (Number(contentA) < Number(contentB)) ? -1 : (Number(contentA) > Number(contentB)) ? 1 : 0;
   ).first()
   firstItem.addClass('active')
   firstItemUrl = firstItem.attr('href')

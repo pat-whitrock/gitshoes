@@ -41,6 +41,9 @@ class ReposController < ApplicationController
 	end
 
 	def show
+		if request.referer == new_repo_url
+		  return redirect_to repos_path
+		end
 		@repo = Repo.find_by(:id => params[:id])
 		respond_to do |format|
 			format.html { render :partial => "show"}
