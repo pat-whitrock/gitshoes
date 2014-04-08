@@ -6,7 +6,7 @@
       </div>
     </div>
     <% if @repos.count == 0 %>
-    <div class="row row-shoebox">
+    <div class="row">
     <div class="col-md-4">
         <%= image_tag 'shoebox.png', size: "200x200", class: "shoebox" %>
       </div>
@@ -19,7 +19,7 @@
     </div>
     <% else %>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 right-border">
         <%= render 'sidebar' %>
       </div>
       <div class="col-md-9">
