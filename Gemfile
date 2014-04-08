@@ -42,7 +42,7 @@ group :test, :development do
   gem "sprockets_better_errors"
   gem "binding_of_caller"
   gem "factory_girl_rails"
-  gem "simplecov"
+  # gem "simplecov"
   gem "database_cleaner"
   gem "sqlite3"
   gem "pry"
