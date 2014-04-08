@@ -13,10 +13,10 @@
         <%= image_tag 'shoebox.png', size: "200x200", class: "shoebox" %>
       </div>
       <div class="col-md-8">
-        <h2>This is your shoebox!</h2>
-        <p>Currently, your shoebox does not have any active repositories.</p>
-        <p>Click add repository button to start activating your repository with Gitshoes.</p>
-        <%= link_to 'Add Repository', new_repo_path, class: "btn btn-primary btn-lg" %>
+        <h2>Your shoebox is empty!</h2>
+        <p>Add a repository to create your first widget.</p>
+        </br>
+        <%= link_to 'Get started', new_repo_path, class: "btn btn-primary btn-lg" %>
       </div>
     </div>
     <% else %>
