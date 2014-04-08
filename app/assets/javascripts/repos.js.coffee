@@ -3,8 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready () ->
-  $('.list-group>a:first').addClass('active')
-  firstItemUrl = $('.list-group>a:first').attr('href')
+  firstItem = $('.list-group-item').sort( (a, b) ->
+    contentA = parseInt( $(a).attr('data-repo-id'));
+    contentB = parseInt( $(b).attr('data-repo-id'));
+    return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+  ).first()
+  firstItem.addClass('active')
+  firstItemUrl = firstItem.attr('href')
   $.ajax({
       url: firstItemUrl,
       dataType: "html",
