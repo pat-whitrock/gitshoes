@@ -1,4 +1,7 @@
 (function() {
+  // If jQuery isn't assigned or isn't version 1.11.0, assign 
+  // version 1.11.0 to the variable jQuery. This allows GitShoes
+  // to use its version of jQuery without conflicting the site's version.
   var jQuery;
   if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.11.0') {
     var script_tag = document.createElement('script');
@@ -19,14 +22,15 @@
     main();
   }
 
+  // Returns control of $ to other JS libraries (like native jQuery)
   function scriptLoadHandler() {
     jQuery = window.jQuery.noConflict(true);
     main();
   }
 
+  // Create widget
   function main() {
     jQuery(document).ready(function($) {
-
       WebFontConfig = {
         google: { families: [ 'Open+Sans::latin' ] }
       };
@@ -147,7 +151,6 @@
       });
 
       console.log($.browser);
-
 
     });
   }
