@@ -97,7 +97,7 @@
           });
           $("form#new_issue").on("submit", function(e){
             e.preventDefault();
-            var bodyText = jQuery('#issue_body').val();
+            var bodyText = jQuery('#issue_system').val();
             var submitBodyText = "Platform: "+ "\n" + navigator.platform + "\n\n" + "Browser: " + "\n" + navigator.userAgent + "\n\n" + "Location: " + "\n" + window.location.pathname + "\n\n" + "Message: " + "\n" + bodyText
             jQuery('#issue_body').val(submitBodyText);
             jQuery.ajax(jQuery("#new_issue").attr("action"), {
