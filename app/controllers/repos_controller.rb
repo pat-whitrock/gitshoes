@@ -59,6 +59,11 @@ class ReposController < ApplicationController
     end
 	end
 
+	def preview
+		@repo = Repo.find_by(:id => params[:id])
+		render :preview
+	end
+
 	def update
  		@repo = Repo.find_by(:id => params[:id])
  		if @repo.update_attributes(repo_params)
