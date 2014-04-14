@@ -97,21 +97,24 @@
           });
           $("form#new_issue").on("submit", function(e){
             e.preventDefault();
-            var bodyText = jQuery('#issue_body').val();
-            var submitBodyText = "Platform: "+ "\n" + navigator.platform + "\n\n" + "Browser: " + "\n" + navigator.userAgent + "\n\n" + "Location: " + "\n" + window.location.pathname + "\n\n" + "Message: " + "\n" + bodyText
-            jQuery('#issue_body').val(submitBodyText);
-            jQuery.ajax(jQuery("#new_issue").attr("action"), {
-              crossDomain: true,
-              method: "POST",
-              data: jQuery("#new_issue").serialize(),
-              success: function(data){
-                jQuery('#gitshoes-form').slideUp();
-                jQuery('#issue_email').val("");
-                jQuery('#issue_title').val("");
-                jQuery('#issue_body').val("");
-                jQuery('#gitshoes-button').fadeOut(400).html('Thank you!').delay(500).fadeIn();
-              }
-            })
+            var bodyText = jQuery('#issue_system').val();
+            if (bodyText !== ""){
+              var submitBodyText = "Platform: "+ "\n" + navigator.platform + "\n\n" + "Browser: " + "\n" + navigator.userAgent + "\n\n" + "Location: " + "\n" + window.location.pathname + "\n\n" + "Message: " + "\n" + bodyText
+              jQuery('#issue_body').val(submitBodyText);
+              jQuery.ajax(jQuery("#new_issue").attr("action"), {
+                crossDomain: true,
+                method: "POST",
+                data: jQuery("#new_issue").serialize(),
+                success: function(data){
+                  jQuery('#gitshoes-form').slideUp();
+                  jQuery('#issue_email').val("");
+                  jQuery('#issue_title').val("");
+                  jQuery('#issue_body').val("");
+                  jQuery('#issue_system').val("");
+                  jQuery('#gitshoes-button').fadeOut(400).html('Thank you!').delay(500).fadeIn();
+                }
+              })
+            };
           })
         }
         
