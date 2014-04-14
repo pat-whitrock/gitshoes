@@ -61,7 +61,6 @@ class ReposController < ApplicationController
 
 	def preview
 		@repo = Repo.find_by(:id => params[:id])
-		render :preview
 	end
 
 	def update
