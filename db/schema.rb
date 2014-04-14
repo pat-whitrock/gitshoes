@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404175657) do
+ActiveRecord::Schema.define(version: 20140414230726) do
 
   create_table "issues", force: true do |t|
     t.string   "title"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20140404175657) do
     t.integer  "offset"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "repo_id"
   end
 
 end

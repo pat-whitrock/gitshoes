@@ -40,6 +40,8 @@ class ReposController < ApplicationController
 		@repo = Repo.new(repo_params)
 		@repo.token = current_user.token
 		@repo.users << current_user
+		@widget = Widget.create_default
+		@repo.widget = @widget
 		if @repo.save
 			redirect_to @repo
 		else
