@@ -5,4 +5,15 @@
 $(document).ready () ->
   $('.datatable').dataTable({
     "sPaginationType": "bootstrap"
+    
+    "fnPreDrawCallback": () ->
+        $("#loading").show()
+    ,
+    "fnDrawCallback": () ->
+    ,
+    "fnInitComplete": () ->
+        $("#details").show()
+        this.fnAdjustColumnSizing()
+        $("#loading").hide()
+    
   })
