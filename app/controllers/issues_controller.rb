@@ -5,6 +5,7 @@ class IssuesController < ApplicationController
 
 	def new
 		@repo = Repo.find(params[:id])
+		@widget = @repo.widget
 		@issue = Issue.new
 		respond_to do |format|
 			format.js   # just renders messages/create.js.erb

@@ -136,14 +136,14 @@
           jQuery('#issue_title').val("");
           jQuery('#issue_body').val("");
           jQuery('#issue_body').val("");
-          jQuery('#gitshoes-button').fadeOut(400).html('Thank you!').delay(500).fadeIn();
+          jQuery('#gitshoes-button').fadeOut(400).html("<%= @widget.button_success_text %>").delay(500).fadeIn();
         });
       };
 
       // click event for slide up or slide down
       jQuery('div#gitshoes-button').on('click', function() { 
-        if (jQuery('#gitshoes-button').html() == 'Thank you!'){
-          jQuery('#gitshoes-button').html('Feedback');
+        if (jQuery('#gitshoes-button').html() == "<%= @widget.button_success_text %>"){
+          jQuery('#gitshoes-button').html("<%= @widget.button_text %>");
         };
 
         if(formDiv.css("display") == "none"){
