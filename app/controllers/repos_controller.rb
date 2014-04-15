@@ -54,6 +54,7 @@ class ReposController < ApplicationController
 		  return redirect_to repos_path
 		end
 		@repo = Repo.find_by(:id => params[:id])
+		@widget = @repo.widget
 		respond_to do |format|
 			format.html { render :partial => "show"}
 			format.js   # just renders messages/create.js.erb

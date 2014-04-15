@@ -56,21 +56,21 @@
       var gitshoesFloater = $('#gitshoes-button')
       gitshoesFloater.text("Feedback");
       gitshoesFloater.css({
-        "width": "auto",
-        "height": "auto",
-        "line-height": "30px",
-        "margin": "0px",
-        "font-size": "18px",
-        "text-align": "center",
-        "padding": "3px 10px 3px 10px",
-        "border-top-left-radius": "5px",
-        "border-top-right-radius": "5px",
-        "background-color": "#357ebd",
-        "color": "white",
-        "cursor": "pointer",
-        "float": "right",
-        "font-family": "'Open Sans', sans-serif",
-        "display": "inline-block"
+        "width": "<%= @widget.tab_width %>",
+        "height": "<%= @widget.tab_height %>",
+        "line-height": "<%= @widget.tab_line_height %>",
+        "margin": "<%= @widget.tab_margin %>",
+        "font-size": "<%= @widget.tab_font_size %>",
+        "text-align": "<%= @widget.tab_text_align %>",
+        "padding": "<%= @widget.tab_padding %>",
+        "border-top-left-radius": "<%= @widget.form_border_radius %>",
+        "border-top-right-radius": "<%= @widget.form_border_radius %>",
+        "background-color": "<%= @widget.background_color %>",
+        "color": "<%= @widget.tab_font_color %>",
+        "cursor": "<%= @widget.tab_cursor %>",
+        "float": "<%= @widget.orientation %>",
+        "font-family": "<%= @widget.tab_font %>",
+        "display": "<%= @widget.tab_display %>"
       });
 
 
