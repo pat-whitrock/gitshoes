@@ -63,3 +63,4 @@ gem "omniauth-github"
 gem "figaro", git: "https://github.com/laserlemon/figaro.git"
 gem "devise"
 gem 'jquery-datatables-rails', git: 'https://github.com/wontaeyang/jquery-datatables-rails.git'
+gem 'dalli'
