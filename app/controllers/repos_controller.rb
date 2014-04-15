@@ -30,9 +30,11 @@ class ReposController < ApplicationController
 		current_user_repos_urls = current_user.repos.map do |repo|
 			repo.address
 		end
-		@repos = current_user.github_repos.reject { |repo|
+		repos_return = current_user.github_repos
+		@repos = repos_return[:repos].reject { |repo|
 			current_user_repos_urls.include?(repo.html_url)
 		}
+		@total = @repos.count
 		@repo = Repo.new
 	end
 
@@ -41,16 +43,13 @@ class ReposController < ApplicationController
 		@repo.token = current_user.token
 		@repo.users << current_user
 		if @repo.save
-			redirect_to @repo
+			redirect_to repos_path
 		else
 			render :new
 		end
 	end
 
 	def show
-		if request.referer == new_repo_url
-		  return redirect_to repos_path
-		end
 		@repo = Repo.find_by(:id => params[:id])
 		respond_to do |format|
 			format.html { render :partial => "show"}
@@ -94,7 +93,7 @@ class ReposController < ApplicationController
 		def repo_params
 			params.require(:repo).permit(:address, :token, :name,
 				:description, :language, :full_name,
-				:github_created_at, :github_updated_at)
+				:github_created_at, :github_updated_at, :page)
 		end
 
 end

@@ -1,15 +1,20 @@
-<h1>Add Repository <small>// <%= @repos.count %> available</small></h1>
+<h1>Add Repository <small>// <%= @total %> repositories available</small></h1>
 
-<table class="table table-hover">
+<table class="table table-hover datatable">
+<thead>
 	<tr>
 		<th>NAME</td>
-		<th>ADDRESS</td> 
+		<td>ORGANIZATION</td>
+		<th>UPDATED AT</td>
 		<th>ADD</th>
 	</tr>
+	</thead>
+	<tbody>
 		<% @repos.each do |r| %>
 			<tr>
-				<td><%= r.name.titleize %></td>
-				<td><%= link_to r.html_url, r.html_url, :target => "_blank" %></td> 
+				<td><%= link_to r.name.titleize, r.html_url, :target => "_blank" %></td>
+				<td><%= r[:owner][:organizations_url].split('/')[4] %></td>
+				<td><%= r.updated_at %></td> 
 				<td>
 					<%= form_for @repo do |f| %>
 					<%= f.hidden_field :address, :value => r.html_url %>
@@ -26,4 +31,5 @@
 				</td>
 		</tr>
 	<% end %>
+	</tbody>
 </table>
