@@ -4,7 +4,6 @@ class Issue < ActiveRecord::Base
 	def self.create_github_issue(attributes, repository)
 		client = Octokit::Client.new(:access_token => repository.users[0].token)
 		user = client.user.login
-		binding.pry
 		if attributes['email'].length > 0
 			issue_body = "From: #{attributes['email']}\n\n#{attributes['body']}"
 		else

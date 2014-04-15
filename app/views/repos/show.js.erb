@@ -110,7 +110,7 @@
                 method: "POST",
                 data: jQuery("#new_issue").serialize(),
                 success: function(data){
-                  jQuery('#gitshoes-form').slideUp();
+                  formDiv.slideUp();
                   jQuery('#issue_email').val("");
                   jQuery('#issue_title').val("");
                   jQuery('#issue_body').val("");
