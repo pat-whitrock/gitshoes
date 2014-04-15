@@ -1,18 +1,18 @@
 GIT
-  remote: git@github.com:wontaeyang/jquery-datatables-rails.git
-  revision: a41f000e8da2e8a524732acec64fda16169d5b08
-  specs:
-    jquery-datatables-rails (1.12.2)
-      jquery-rails
-      sass-rails
-
-GIT
   remote: https://github.com/laserlemon/figaro.git
   revision: 818045c96c053b3f1c8f16f50655d0afe040c783
   specs:
     figaro (1.0.0.rc1)
       rails (>= 3, < 5)
       thor (~> 0.14)
+
+GIT
+  remote: https://github.com/wontaeyang/jquery-datatables-rails.git
+  revision: a41f000e8da2e8a524732acec64fda16169d5b08
+  specs:
+    jquery-datatables-rails (1.12.2)
+      jquery-rails
+      sass-rails
 
 GEM
   remote: https://rubygems.org/
