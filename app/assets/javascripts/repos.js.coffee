@@ -2,17 +2,18 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready () ->
+# $(document).ready () ->
+jQuery ->
   $('.datatable').dataTable({
     "sPaginationType": "bootstrap"
-    
+
     "fnPreDrawCallback": () ->
         $("#loading").show()
     ,
     "fnDrawCallback": () ->
     ,
     "fnInitComplete": () ->
-        $("#details").show()
+        $("#table").show()
         this.fnAdjustColumnSizing()
         $("#loading").hide()
     
