@@ -5,16 +5,11 @@
 # $(document).ready () ->
 jQuery ->
   $('.datatable').dataTable({
-    "sPaginationType": "bootstrap"
+    "sPaginationType": "bootstrap",
+    "iDisplayLength": 30,
 
-    "fnPreDrawCallback": () ->
-        $("#loading").show()
-    ,
-    "fnDrawCallback": () ->
-    ,
     "fnInitComplete": () ->
         $("#table").show()
         this.fnAdjustColumnSizing()
-        $("#loading").hide()
     
   })
