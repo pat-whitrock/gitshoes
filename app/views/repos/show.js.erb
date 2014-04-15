@@ -46,15 +46,15 @@
       
       var gitshoesInsert = $("<div id='feedback-container'><div id='gitshoes-button'></div></div>");
       gitshoesInsert.css({
-        "position": "fixed",
-        "right": 30,
-        "bottom": 0,
-        "width": "300px"
+        "position": "<%= @widget.position %>",
+        "<%= @widget.orientation %>": "<%= @widget.offset %>",
+        "<%= @widget.edge %>": 0,
+        "width": "<%= @widget.form_width %>"
       });
       gitshoesInsert.appendTo('body');
 
       var gitshoesFloater = $('#gitshoes-button')
-      gitshoesFloater.text("Feedback");
+      gitshoesFloater.text("<%= @widget.tab_text %>");
       gitshoesFloater.css({
         "width": "<%= @widget.tab_width %>",
         "height": "<%= @widget.tab_height %>",
@@ -65,7 +65,7 @@
         "padding": "<%= @widget.tab_padding %>",
         "border-top-left-radius": "<%= @widget.form_border_radius %>",
         "border-top-right-radius": "<%= @widget.form_border_radius %>",
-        "background-color": "<%= @widget.background_color %>",
+        "background-color": "<%= @widget.tab_background_color %>",
         "color": "<%= @widget.tab_font_color %>",
         "cursor": "<%= @widget.tab_cursor %>",
         "float": "<%= @widget.orientation %>",
@@ -77,11 +77,14 @@
       var gitshoesFormDiv = $("<div id='gitshoes-form'></div>");
       gitshoesFormDiv.css({
         "padding": "5px 20px 5px 20px",
-        "background-color": "white",
-        "width": "300px",
-        "float": "right",
-        "border": "1px solid #9a9a9a",
-        "border-top-left-radius": "5px"
+        "background-color": "<%= @widget.form_background_color %>",
+        "width": "<%= @widget.form_width %>",
+        "float": "<%= @widget.orientation %>",
+        "border": "<%= @widget.form_border_thickness %> <%= @widget.form_border_type %> <%= @widget.form_border_color %>",
+        "border-top-left-radius": "<%= @widget.tab_edge_radius %>",
+        "font-size": "<%= @widget.body_font_size %>",
+        "color": "<%= @widget.body_font_color %>",
+        "font-family": "<%= @widget.body_font %>"
       });
       gitshoesFormDiv.appendTo('#feedback-container');
 

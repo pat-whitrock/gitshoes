@@ -68,10 +68,14 @@ ActiveRecord::Schema.define(version: 20140404175657) do
 
   create_table "widgets", force: true do |t|
     t.integer  "repo_id"
+    t.string   "position"
+    t.string   "edge"
     t.string   "color"
     t.string   "tab_font_color"
+    t.string   "tab_background_color"
     t.string   "body_font_color"
-    t.string   "background_color"
+    t.string   "body_font_size"
+    t.string   "body_font"
     t.string   "tab_font"
     t.string   "tab_font_size"
     t.string   "tab_text_align"
@@ -91,6 +95,7 @@ ActiveRecord::Schema.define(version: 20140404175657) do
     t.string   "button_font"
     t.string   "button_font_size"
     t.string   "button_text"
+    t.string   "form_background_color"
     t.string   "form_width"
     t.string   "form_border_thickness"
     t.string   "form_border_type"
