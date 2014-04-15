@@ -30,6 +30,7 @@ class ReposController < ApplicationController
 		current_user_repos_urls = current_user.repos.map do |repo|
 			repo.address
 		end
+		# binding.pry
 		repos_return = current_user.github_repos
 		@repos = repos_return[:repos].reject { |repo|
 			current_user_repos_urls.include?(repo.html_url)

@@ -6,9 +6,11 @@ class Repo < ActiveRecord::Base
 	validates :address, uniqueness: true
 
 	def self.add_existing_repos(repos, user)
+		# binding.pry
 		repos.select do |repo|
+			# binding.pry
 			if new_user_repo = Repo.where(address: repo.html_url).first
-				user << new_user_repo
+				user.repos << new_user_repo
 				false
 			else
 				true
