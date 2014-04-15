@@ -98,6 +98,10 @@ svg{
   height: 100%;
 }
 
-.datatable{
-  margin: 30px 0 30px 0;
+#table_wrapper{
+  margin: 60px 0 60px 0;
+}
+
+div.dataTables_paginate ul.pagination {
+  margin: 20px;
 }

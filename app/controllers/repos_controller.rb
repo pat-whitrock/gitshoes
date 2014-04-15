@@ -36,6 +36,7 @@ class ReposController < ApplicationController
 		}
 		@total = @repos.count
 		@repo = Repo.new
+		expires_in 5.minutes, public: true
 	end
 
 	def create

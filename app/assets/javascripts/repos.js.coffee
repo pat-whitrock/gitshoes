@@ -17,6 +17,7 @@ jQuery ->
         '</select> records'
     },
     "iDisplayLength": 20,
+    "bAutoWidth": false,
 
     "fnInitComplete": () ->
         $("#table").show()
