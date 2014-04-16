@@ -9,7 +9,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 			end
 
 			sign_in_and_redirect @user, :event => :authentication
-			@user.add_from_collaborators
 			set_flash_message(:notice, :success, :kind => 'Github') if is_navigational_format?
 		else
 			session['devise.github_data'] = request_env
