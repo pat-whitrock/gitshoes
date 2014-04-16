@@ -42,12 +42,7 @@ class ReposController < ApplicationController
 
 	def create
 		if Repo.has_address?(repo_params[:address])
-			existing_repo = Repo.where(:address => repo_params[:address]).first
-			existing_users = existing_repo.users.map {|user| user.id}
-			# Add current user to the repo only if it's id does not exist in repo.users
-			if existing_users.include?(current_user.id) == false
-				Repo.where(:address => repo_params[:address]).first.users << current_user
-			end
+			Repo.find_or_add_user_to_repo(repo_params[:address])
 			redirect_to repos_path
 		else
 			@repo = Repo.new(repo_params)
