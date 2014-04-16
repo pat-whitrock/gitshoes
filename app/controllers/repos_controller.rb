@@ -52,6 +52,7 @@ class ReposController < ApplicationController
 			if @repo.save
 				redirect_to repos_path
 			else
+				# fail safe to check in case existing repo filter did not take out existing repos
 				existing_repo = Repo.where(:address => repo_params[:address]).first
 				existing_users = existing_repo.users.map {|user| user.id}
 				if existing_users.include?(current_user.id) == false
