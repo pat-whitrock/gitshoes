@@ -41,14 +41,24 @@ class ReposController < ApplicationController
 	end
 
 	def create
-		@repo = Repo.new(repo_params)
-		@repo.token = current_user.token
-		@repo.users << current_user
-		if @repo.save
-			redirect_to repos_path
-		else
+		binding.pry
+		if Repo.has_address?(repo_params[:address])
 			Repo.where(:address => repo_params[:address]).first.users << current_user
 			redirect_to repos_path
+		else
+			@repo = Repo.new(repo_params)
+			@repo.token = current_user.token
+			@repo.users << current_user
+			if @repo.save
+				redirect_to repos_path
+			else
+				existing_repo = Repo.where(:address => repo_params[:address]).first
+				existing_users = existing_repo.users.map {|user| user.id}
+				if existing_users.include?(current_user.id) == false
+					existing_repo.users << current_user
+				end
+				redirect_to repos_path
+			end
 		end
 	end
 
@@ -80,7 +90,11 @@ class ReposController < ApplicationController
 
 	def destroy
 		@repo = Repo.find(params[:id])
-		@repo.destroy
+		if @repo.users.count > 1
+			UserRepo.where(:user_id => current_user.id, :repo_id => params[:id]).first.destroy
+		else
+			@repo.destroy
+		end
 		redirect_to repos_path
 	end
 
