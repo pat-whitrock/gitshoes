@@ -30,8 +30,9 @@ class ReposController < ApplicationController
 		current_user_repos_urls = current_user.repos.map do |repo|
 			repo.address
 		end
-		repos_return = current_user.github_repos
-		@repos = repos_return[:repos].reject { |repo|
+		repos_return = current_user.github_repos[:repos]
+		
+		@repos = repos_return.reject { |repo|
 			current_user_repos_urls.include?(repo.html_url)
 		}
 		@total = @repos.count
