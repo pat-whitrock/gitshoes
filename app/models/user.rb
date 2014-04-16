@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   def github_repos
     Octokit.auto_paginate = true
     client = Octokit::Client.new(:access_token => self.token)
-    repos = client.search_repositories("user:#{client.user[:login]}")[:items]
+    repos = client.repositories
     org_repos = organization_repos(client)
     repos << org_repos
     repos.flatten!
