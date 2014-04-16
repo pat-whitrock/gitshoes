@@ -4,7 +4,7 @@ class ReposController < ApplicationController
 	# before_action :set_cache_buster, :only => [:new]
 	skip_before_filter :authenticate_user!, :only => [:show]
 	before_filter(:only => :show) do |controller|
-		authenticate_user! unless controller.request.format.js?
+		authenticate_user! unless controller.format_js?
 	end
 
   # def set_cache_buster
@@ -12,10 +12,6 @@ class ReposController < ApplicationController
   #   response.headers["Pragma"] = "no-cache"
   #   response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
   # end
-
-  def format_js?
-  	request.format.js?
-	end
 
 	def index
 		@repos = current_user.repos
@@ -94,6 +90,10 @@ class ReposController < ApplicationController
 			format.js   # just renders messages/create.js.erb
 			format.json { render json: @repo }
     end
+	end
+
+	def format_js?
+  	request.format.js?
 	end
 
 	private
