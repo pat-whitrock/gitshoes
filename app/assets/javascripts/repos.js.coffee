@@ -20,6 +20,8 @@ jQuery ->
 
     "fnInitComplete": () ->
         $("#table_filter input").addClass("form-control")
+        $("#table_filter label").text("")
+        $("#table_filter label").append("<span class='glyphicon glyphicon-search'></span> <input type='text' aria-controls='table' class='form-control' placeholder='Search'>")
         $("#table").show()
         this.fnAdjustColumnSizing()
     
