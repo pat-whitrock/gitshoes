@@ -57,7 +57,7 @@ class ReposController < ApplicationController
 	end
 
 	def show
-		@repo = Repo.find_by(:id => params[:id])
+		@repo = Repo.find(params[:id])
 		respond_to do |format|
 			format.html { render :partial => "show"}
 			format.js   # just renders messages/create.js.erb
@@ -66,11 +66,11 @@ class ReposController < ApplicationController
 	end
 
 	def preview
-		@repo = Repo.find_by(:id => params[:id])
+		@repo = Repo.find(params[:id])
 	end
 
 	def update
- 		@repo = Repo.find_by(:id => params[:id])
+ 		@repo = Repo.find(params[:id])
  		if @repo.update_attributes(repo_params)
  			redirect_to @repo
  		else
