@@ -84,11 +84,7 @@ class ReposController < ApplicationController
 
 	def destroy
 		@repo = Repo.find(params[:id])
-		if @repo.users.count > 1
-			UserRepo.where(:user_id => current_user.id, :repo_id => params[:id]).first.destroy
-		else
-			@repo.destroy
-		end
+		@repo.destroy_or_remove_user(current_user.id)
 		redirect_to repos_path
 	end
 

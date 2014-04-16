@@ -17,4 +17,12 @@ class Repo < ActiveRecord::Base
 		end
   end
 
+  def destroy_or_remove_user(user_id)
+  	if @repo.users.count > 1
+			UserRepo.where(:user_id => user_id, :repo_id => @repo.id).first.destroy
+		else
+			@repo.destroy
+		end
+  end
+
 end
