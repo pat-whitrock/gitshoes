@@ -35,7 +35,6 @@ class ReposController < ApplicationController
 		@repos = repos_return[:repos].reject { |repo|
 			current_user_repos_urls.include?(repo.html_url)
 		}
-		@repos = Repo.add_existing_repos(@repos, current_user)
 		@total = @repos.count
 		@repo = Repo.new
 		expires_in 5.minutes, public: true
@@ -93,6 +92,7 @@ class ReposController < ApplicationController
 	end
 
 	private
+
 		def repo_params
 			params.require(:repo).permit(:address, :token, :name,
 				:description, :language, :full_name,

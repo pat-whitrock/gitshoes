@@ -31,4 +31,20 @@ class User < ActiveRecord::Base
     end
     return {:repos => repos}
   end
+
+  def add_from_collaborators
+    user_repos_urls = self.repos.map do |repo|
+      repo.address
+    end
+    repos_return = self.github_repos
+    repos = repos_return[:repos].reject { |repo|
+      user_repos_urls.include?(repo.html_url)
+    }
+    repos.each do |repo|
+      # binding.pry
+      if new_user_repo = Repo.where(address: repo.html_url).first
+        self.repos << new_user_repo
+      end
+    end
+  end
 end
