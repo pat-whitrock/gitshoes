@@ -18,6 +18,7 @@ jQuery ->
     },
     "iDisplayLength": 20,
     "bAutoWidth": false,
+    "aaSorting": [[2,'desc']],
 
     "fnInitComplete": () ->
         $("#table").show()
