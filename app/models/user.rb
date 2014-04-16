@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def organization_repos(client)
-    Octokit.per_page = 100
+    Octokit.auto_paginate = true
     organizations = client.organizations.map { |orgs| orgs.login }
     org_repos = organizations.map do |org|
       client.org_repositories(org)
@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     (1..number_of_pages.to_i).each do |page|
       repos += client.search_repositories("user:#{client.user[:login]}", :sort => "updated", :order => "desc", :page => page)[:items]
     end
-    org_repos = organization_repos
+    org_repos = organization_repos(client)
     org_repos.each do |repo|
       repos << repo
     end
