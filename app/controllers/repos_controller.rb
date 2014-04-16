@@ -41,7 +41,6 @@ class ReposController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		if Repo.has_address?(repo_params[:address])
 			Repo.where(:address => repo_params[:address]).first.users << current_user
 			redirect_to repos_path
