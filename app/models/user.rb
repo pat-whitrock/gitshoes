@@ -28,19 +28,13 @@ class User < ActiveRecord::Base
   end
 
   def github_repos
-    Octokit.per_page = 100
+    Octokit.auto_paginate = true
     client = Octokit::Client.new(:access_token => self.token)
-    repos_count = client.search_repositories("user:#{client.user[:login]}").total_count
-    last_response = client.last_response
-    number_of_pages = last_response.rels[:last].href.match(/page=(\d+)$/)[1]
-    repos = []
-    (1..number_of_pages.to_i).each do |page|
-      repos += client.search_repositories("user:#{client.user[:login]}", :sort => "updated", :order => "desc", :page => page)[:items]
-    end
+    repos = client.search_repositories("user:#{client.user[:login]}")[:items]
     org_repos = organization_repos(client)
-    org_repos.each do |repo|
-      repos << repo
-    end
+    repos << org_repos
+    repos.flatten!
+    repos.uniq! { |repo| repo.id }
     return {:repos => repos}
   end
 
