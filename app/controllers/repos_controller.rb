@@ -41,19 +41,15 @@ class ReposController < ApplicationController
 	end
 
 	def create
-		if has_address?(params[:address])
-			Repo.where(:address => params[:address]).first.users << current_user
+		@repo = Repo.new(repo_params)
+		@repo.token = current_user.token
+		@repo.users << current_user
+		if @repo.save
+			redirect_to repos_path
 		else
-			@repo = Repo.new(repo_params)
-			@repo.token = current_user.token
-			@repo.users << current_user
-			if @repo.save
-				redirect_to repos_path
-			else
-				render :new
-			end
+			Repo.where(:address => repo_params[:address]).first.users << current_user
+			redirect_to repos_path
 		end
-		redirect_to repos_path
 	end
 
 	def show
