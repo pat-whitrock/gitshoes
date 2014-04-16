@@ -2,11 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# $(document).ready () ->
 jQuery ->
   $('.datatable').dataTable({
     "sPaginationType": "bootstrap",
-    "iDisplayLength": 30,
     "oLanguage": {
       "sLengthMenu": 'Display <select>'+
         '<option value="20">20</option>'+
@@ -21,7 +19,9 @@ jQuery ->
     "aaSorting": [[2,'desc']],
 
     "fnInitComplete": () ->
+        $("#table_filter input").addClass("form-control")
         $("#table").show()
         this.fnAdjustColumnSizing()
     
   })
+
