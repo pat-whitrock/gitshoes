@@ -42,7 +42,12 @@ class ReposController < ApplicationController
 
 	def create
 		if Repo.has_address?(repo_params[:address])
-			Repo.where(:address => repo_params[:address]).first.users << current_user
+			existing_repo = Repo.where(:address => repo_params[:address]).first
+			existing_users = existing_repo.users.map {|user| user.id}
+			# Add current user to the repo only if it's id does not exist in repo.users
+			if existing_users.include?(current_user.id) == false
+				Repo.where(:address => repo_params[:address]).first.users << current_user
+			end
 			redirect_to repos_path
 		else
 			@repo = Repo.new(repo_params)
@@ -51,14 +56,7 @@ class ReposController < ApplicationController
 			if @repo.save
 				redirect_to repos_path
 			else
-				# fail safe to check in case existing repo filter did not take out existing repos
-				# and prevents adding two or more of same repos
-				existing_repo = Repo.where(:address => repo_params[:address]).first
-				existing_users = existing_repo.users.map {|user| user.id}
-				if existing_users.include?(current_user.id) == false
-					existing_repo.users << current_user
-				end
-				redirect_to repos_path
+				render :new
 			end
 		end
 	end
