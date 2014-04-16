@@ -41,7 +41,6 @@ class User < ActiveRecord::Base
       user_repos_urls.include?(repo.html_url)
     }
     repos.each do |repo|
-      # binding.pry
       if new_user_repo = Repo.where(address: repo.html_url).first
         self.repos << new_user_repo
       end
