@@ -1,17 +1,10 @@
 class ReposController < ApplicationController
 
 	protect_from_forgery :except => [:show]
-	# before_action :set_cache_buster, :only => [:new]
 	skip_before_filter :authenticate_user!, :only => [:show]
 	before_filter(:only => :show) do |controller|
 		authenticate_user! unless controller.format_js?
 	end
-
-  # def set_cache_buster
-  #   response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
-  #   response.headers["Pragma"] = "no-cache"
-  #   response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
-  # end
 
 	def index
 		@repos = current_user.repos
@@ -56,7 +49,7 @@ class ReposController < ApplicationController
 		@repo = Repo.find(params[:id])
 		respond_to do |format|
 			format.html { render :partial => "show"}
-			format.js   # just renders messages/create.js.erb
+			format.js
 			format.json { render json: @repo }
     end
 	end
