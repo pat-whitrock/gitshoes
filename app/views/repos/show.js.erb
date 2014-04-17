@@ -105,6 +105,9 @@
             if (bodyText !== ""){
               var submitBodyText = "Platform: "+ "\n" + navigator.platform + "\n\n" + "Browser: " + "\n" + navigator.userAgent + "\n\n" + "Location: " + "\n" + window.location.pathname + "\n\n" + "Message: " + "\n" + bodyText
               jQuery('#issue_body').val(submitBodyText);
+              debugger;
+              var image_data_url = jQuery('canvas').last()[0].toDataURL();
+              jQuery('#issue_data_image').val(image_data_url);
               jQuery.ajax(jQuery("#new_issue").attr("action"), {
                 crossDomain: true,
                 method: "POST",
@@ -124,19 +127,6 @@
         
       });
 
-      function ajaxCall (){
-        console.log("hi");
-        jQuery(document).on("ajax:success", "#new_issue", function(event, data, status, xhr){
-          console.log('ajax success triggered');
-          jQuery('#gitshoes-form').slideUp();
-          jQuery('#issue_email').val("");
-          jQuery('#issue_title').val("");
-          jQuery('#issue_body').val("");
-          jQuery('#issue_body').val("");
-          jQuery('#gitshoes-button').fadeOut(400).html('Thank you!').delay(500).fadeIn();
-        });
-      };
-
       // click event for slide up or slide down
       jQuery('div#gitshoes-button').on('click', function() { 
         if (jQuery('#gitshoes-button').html() == 'Thank you!'){
@@ -145,6 +135,11 @@
 
         if(formDiv.css("display") == "none"){
           formDiv.slideDown();
+          html2canvas(document.body, {
+            onrendered: function(canvas) {
+              $('body').append(canvas).find('canvas').last().css('display', 'none');
+            }
+          });
         } else {
           formDiv.slideUp();
         }

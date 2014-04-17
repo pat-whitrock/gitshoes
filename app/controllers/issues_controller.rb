@@ -13,6 +13,7 @@ class IssuesController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@repo = Repo.find(params[:id])
 		Issue.create_github_issue(issue_params, @repo)
 
@@ -35,7 +36,7 @@ class IssuesController < ApplicationController
 
 	private
 	def issue_params
-		params.require(:issue).permit(:email, :title, :body)
+		params.require(:issue).permit(:email, :title, :body, :data_image)
 	end
 
 end

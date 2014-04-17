@@ -48,6 +48,10 @@ GEM
       builder
       multi_json
     arel (5.0.1.20140414130214)
+    aws-s3 (0.6.3)
+      builder
+      mime-types
+      xml-simple
     bcrypt (3.1.7)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -74,6 +78,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     dalli (2.7.0)
+    data_uri (0.1.0)
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     devise (3.2.4)
@@ -232,6 +237,7 @@ GEM
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.0.7)
+    xml-simple (1.1.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -240,12 +246,14 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
+  aws-s3
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.1.1)
   capybara
   coffee-rails (~> 4.0.0)
   dalli
+  data_uri
   database_cleaner
   devise
   factory_girl_rails
