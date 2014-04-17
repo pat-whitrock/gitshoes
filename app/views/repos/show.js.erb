@@ -105,7 +105,6 @@
             if (bodyText !== ""){
               var submitBodyText = "Platform: "+ "\n" + navigator.platform + "\n\n" + "Browser: " + "\n" + navigator.userAgent + "\n\n" + "Location: " + "\n" + window.location.pathname + "\n\n" + "Message: " + "\n" + bodyText
               jQuery('#issue_body').val(submitBodyText);
-              debugger;
               var image_data_url = jQuery('canvas').last()[0].toDataURL();
               jQuery('#issue_data_image').val(image_data_url);
               jQuery.ajax(jQuery("#new_issue").attr("action"), {

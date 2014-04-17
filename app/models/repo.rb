@@ -4,6 +4,8 @@ class Repo < ActiveRecord::Base
 	has_many :users, through: :user_repos
 	has_one :widget
 	validates :address, uniqueness: true
+	accepts_nested_attributes_for :issues
+	accepts_nested_attributes_for :widget
 
   def self.has_address?(address)
     exists?(:address => address)

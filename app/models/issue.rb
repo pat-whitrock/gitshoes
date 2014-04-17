@@ -1,5 +1,7 @@
 class Issue < ActiveRecord::Base
 	belongs_to :repo
+	# accepts_nested_attributes_for :widget
+	# accepts_nested_attributes_for :repos
 
 	def self.create_github_issue(attributes, repository)
 		binding.pry
