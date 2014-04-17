@@ -4,13 +4,11 @@ class Issue < ActiveRecord::Base
 	# accepts_nested_attributes_for :repos
 
 	def self.create_github_issue(attributes, repository)
-		binding.pry
 		uri = URI::Data.new(attributes['data_image'])
 		# encoded_uri = Base64.encode64(open(uri) { |io| io.read })
-		image_file = File.open('test.png', 'w+') do |f|
-			f.write(uri.data.force_encoding('UTF-8'))
-		end
-		image_file.close
+		f = File.new('test.png', 'w+')
+		f.write(uri.data.force_encoding('UTF-8'))
+		f.close
 		binding.pry
 		AWS::S3::S3Object.store(
 			"#{repository.id}/screenshots",

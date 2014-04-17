@@ -13,7 +13,6 @@ class IssuesController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		@repo = Repo.find(params[:id])
 		Issue.create_github_issue(issue_params, @repo)
 
