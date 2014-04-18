@@ -150,9 +150,9 @@
             onrendered: function(canvas) {
               $('#gitshoesCanvas').remove();
               $('body').append(canvas).find('canvas').last().css('display', 'none').attr('id', 'gitshoesCanvas');
+              formDiv.slideDown();
             }
           });
-          formDiv.slideDown();
         } else {
           formDiv.slideUp();
         }
