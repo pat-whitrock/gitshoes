@@ -1,20 +1,36 @@
-<%= form_for @widget, url: {action: "update"} do |f| %>
+<div id="widget_form">
+	<%= form_for @widget, url: {action: "update"} do |f| %>
 
-	<%= render :partial => 'color', :locals=>{ :f => f } %>
-	</br>
-	<%= render :partial => 'font', :locals=>{ :f => f } %>
-	</br>
-	<%= render :partial => 'size', :locals=>{ :f => f } %>
-	</br>
-	<%= render :partial => 'text', :locals=>{ :f => f } %>
-	</br>
-	<%= render :partial => 'orientation', :locals=>{ :f => f } %>
-	</br>
+		<div class="widget_form_section">
+			<div id="widget_color">
+				<%= render :partial => 'color', :locals=>{ :f => f } %>
+			</div>
+			</br>
+			<div id="widget_font">
+			<%= render :partial => 'font', :locals=>{ :f => f } %>
+			</div>
+			</br>
+			<div id="widget_size">
+			<%= render :partial => 'size', :locals=>{ :f => f } %>
+			</div>
+			</br>
+			<div id="widget_text">
+			<%= render :partial => 'text', :locals=>{ :f => f } %>
+			</div>
+			</br>
+			<div id="widget_orientation">
+			<%= render :partial => 'orientation', :locals=>{ :f => f } %>
+			</div>
+			</br>
+		</div>
 
-	</br>
-	</br>
+		</br>
+		</br>
 
-  <%= f.submit 'Save widget', class: "btn btn-primary btn-sm" %>
-  <%= f.submit 'Reset default', class: "btn btn-sm" %>
+		<div id="widget_form_buttons">
+		  <%= f.submit 'Save widget', class: "btn btn-primary btn-sm" %>
+		  <%= f.submit 'Reset default', class: "btn btn-sm" %>
+		</div>
 
-<% end %>
+	<% end %>
+</div>
