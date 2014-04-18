@@ -1,4 +1,20 @@
-<%= form_for @widget do |f| %>
-	<%= f.hidden_field :address, :value => r.html_url %>
-	<%= f.submit 'Save widget', class: "btn btn-primary btn-sm" %>
+<%= form_for @widget, url: {action: "update"} do |f| %>
+
+	<%= render :partial => 'color', :locals=>{ :f => f } %>
+	</br>
+	<%= render :partial => 'font', :locals=>{ :f => f } %>
+	</br>
+	<%= render :partial => 'size', :locals=>{ :f => f } %>
+	</br>
+	<%= render :partial => 'text', :locals=>{ :f => f } %>
+	</br>
+	<%= render :partial => 'orientation', :locals=>{ :f => f } %>
+	</br>
+
+	</br>
+	</br>
+
+  <%= f.submit 'Save widget', class: "btn btn-primary btn-sm" %>
+  <%= f.submit 'Reset default', class: "btn btn-sm" %>
+
 <% end %>
