@@ -1,24 +1,24 @@
 <div id="widget_form">
-	<%= form_for @widget, url: {action: "update"} do |f| %>
+	<%= form_for @widget, role: "form", url: {action: "update"} do |f| %>
 
-		<div class="widget_form_section">
-			<div id="widget_color">
+		<div class="widget-form-section">
+			<div id="widget-color">
 				<%= render :partial => 'color', :locals=>{ :f => f } %>
 			</div>
 			</br>
-			<div id="widget_font">
+			<div id="widget-font">
 			<%= render :partial => 'font', :locals=>{ :f => f } %>
 			</div>
 			</br>
-			<div id="widget_size">
+			<div id="widget-size">
 			<%= render :partial => 'size', :locals=>{ :f => f } %>
 			</div>
 			</br>
-			<div id="widget_text">
+			<div id="widget-text">
 			<%= render :partial => 'text', :locals=>{ :f => f } %>
 			</div>
 			</br>
-			<div id="widget_orientation">
+			<div id="widget-orientation">
 			<%= render :partial => 'orientation', :locals=>{ :f => f } %>
 			</div>
 			</br>
@@ -29,7 +29,7 @@
 
 		<div id="widget_form_buttons">
 		  <%= f.submit 'Save widget', class: "btn btn-primary btn-sm" %>
-		  <%= f.submit 'Reset default', class: "btn btn-sm" %>
+		  <%= f.submit 'Reset default', class: "btn btn-sm btn-default" %>
 		</div>
 
 	<% end %>
