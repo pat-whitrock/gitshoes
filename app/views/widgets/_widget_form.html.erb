@@ -1,27 +1,22 @@
 <div id="widget_form">
 	<%= form_for @widget, role: "form", url: {action: "update"} do |f| %>
 
-		<div class="widget-form-section">
-			<div id="widget-color">
+		<div class="widget-form-box">
+			<div id="widget-color" class="widget-form-section active">
 				<%= render :partial => 'color', :locals=>{ :f => f } %>
 			</div>
-			</br>
-			<div id="widget-font">
+			<div id="widget-font" class="widget-form-section">
 			<%= render :partial => 'font', :locals=>{ :f => f } %>
 			</div>
-			</br>
-			<div id="widget-size">
+			<div id="widget-size" class="widget-form-section">
 			<%= render :partial => 'size', :locals=>{ :f => f } %>
 			</div>
-			</br>
-			<div id="widget-text">
+			<div id="widget-text" class="widget-form-section">
 			<%= render :partial => 'text', :locals=>{ :f => f } %>
 			</div>
-			</br>
-			<div id="widget-orientation">
+			<div id="widget-orientation" class="widget-form-section">
 			<%= render :partial => 'orientation', :locals=>{ :f => f } %>
 			</div>
-			</br>
 		</div>
 
 		</br>
