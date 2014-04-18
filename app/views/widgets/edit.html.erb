@@ -1,0 +1,19 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="page-header">
+      <h1><%= @repo.name %></small>
+        <%= link_to 'My Shoebox', repos_path, class: "btn btn-primary pull-right" %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= form_for @widget, url: {action: "update"} do |f| %>
+        <%= f.submit 'Save widget', class: "btn btn-primary btn-sm" %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <%= image_tag 'http://upload.wikimedia.org/wikipedia/commons/e/e8/Imac_16-9.png', size: "585x450" %>
+    </div>
+  </div>
+</div>

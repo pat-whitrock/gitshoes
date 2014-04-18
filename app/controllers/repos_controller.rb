@@ -75,10 +75,6 @@ class ReposController < ApplicationController
  		end
 	end
 
-	def edit
-		@repo = Repo.find(params[:id])
-	end
-
 	def destroy
 		@repo = Repo.find(params[:id])
 		@repo.destroy
