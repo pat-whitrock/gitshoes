@@ -146,12 +146,13 @@
 
         // Create canvas snapshot of DOM, append and hide
         if(formDiv.css("display") == "none"){
-          formDiv.slideDown();
           html2canvas(document.body, {
             onrendered: function(canvas) {
-              $('body').append(canvas).find('canvas').last().css('display', 'none');
+              $('#gitshoesCanvas').remove();
+              $('body').append(canvas).find('canvas').last().css('display', 'none').attr('id', 'gitshoesCanvas');
             }
           });
+          formDiv.slideDown();
         } else {
           formDiv.slideUp();
         }
