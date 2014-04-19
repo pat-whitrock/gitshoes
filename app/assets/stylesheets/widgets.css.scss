@@ -20,7 +20,6 @@ div#mac-view-container {
 
 div.widget-view {
 	height: 378px;
-	border: 1px solid green;
 	margin-bottom: 20px;
 	position: relative;
 	left: 29px;
@@ -43,4 +42,14 @@ div.mac-screen {
 img.zoomed-imac {
 	margin-left: -500px;
 	margin-top: -253px;
+}
+
+div.widget-view-zoom {
+	margin-right: 82px;
+	margin-top: -316px;
+	border: green;
+
+	background-color: red;
+	position: relative;
+	left: 29px;
 }

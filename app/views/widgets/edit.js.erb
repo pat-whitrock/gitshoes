@@ -35,4 +35,41 @@ $(document).ready(function() {
 
     feedbackClone.appendTo($('.widget-view'));
   })();
+
+  (function() {
+    // Clone widget and assign parts to variables
+    var feedbackCloneZoom = $('#feedback-container').clone();
+    var feedbackCloneTabZoom = feedbackCloneZoom.find('#gitshoes-button');
+    var feedbackCloneFormZoom = feedbackCloneZoom.find('#gitshoes-form');
+
+    // Align widget to bottom of div
+    feedbackCloneZoom.attr('id', 'feedback-clone-zoom');
+    feedbackCloneZoom.css('position', 'absolute');
+    feedbackCloneTabZoom.attr('id', 'feedback-clone-zoom-gitshoes-button');
+    feedbackCloneFormZoom.attr('id', 'feedback-clone-zoom-gitshoes-form');
+
+    // Display form div
+    feedbackCloneFormZoom.css('display', 'block');
+
+    // Fill form div with actual form
+    var feedbackCloneFormZoomUrl = "<%= new_issue_url(@repo) %>";
+    jQuery.ajax({
+      url:       feedbackCloneFormZoomUrl,
+      dataType:  "html",
+      success:   function(data) {
+        feedbackCloneFormZoom.html(data)
+        // Namespace cloned form
+        var feedbackCloneZoomNewIssue = $("form#new_issue");
+        feedbackCloneZoomNewIssue.attr('id', 'feedback-clone-zoom-new-issue');
+        feedbackCloneZoomNewIssue.css('margin', '0');
+        feedbackCloneZoomNewIssue.find('#issue_email').attr('id', 'feedback-clone-zoom-issue-email');
+        feedbackCloneZoomNewIssue.find('#issue_title').attr('id', 'feedback-clone-zoom-issue-title');
+        feedbackCloneZoomNewIssue.find('#issue_system').attr('id', 'feedback-clone-zoom-issue-system');
+        feedbackCloneZoomNewIssue.find('#issue_system').attr('id', 'feedback-clone-zoom-issue-system');
+        feedbackCloneZoomNewIssue.find('#feedback-submit').attr('id', 'feedback-clone-zoom-feedback-submit');
+      }
+    });
+
+    feedbackCloneZoom.appendTo($('.widget-view-zoom'));
+  })();
 });
