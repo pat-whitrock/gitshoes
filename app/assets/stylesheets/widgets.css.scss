@@ -12,6 +12,10 @@ div.widget-form-section.active {
 
 div#mac-view-container {
 	position: relative;
+	width: 730px;
+	height: 595px;
+	overflow: hidden;
+	margin-bottom: 50px;
 }
 
 div.widget-view {
@@ -34,4 +38,9 @@ div.mac-screen {
 	padding-top: 10px;
 	font-size: 16px;
 	z-index: 1;
+}
+
+img.zoomed-imac {
+	margin-left: -500px;
+	margin-top: -253px;
 }
