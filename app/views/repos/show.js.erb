@@ -119,7 +119,7 @@
                   jQuery('#issue_title').val("");
                   jQuery('#issue_body').val("");
                   jQuery('#issue_system').val("");
-                  jQuery('#gitshoes-button').fadeOut(400).html('Thank you!').delay(500).fadeIn();
+                  jQuery('#gitshoes-button').fadeOut(400).html("<%= @widget.button_success_text %>").delay(500).fadeIn();
                 }
               })
             };

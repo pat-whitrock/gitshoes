@@ -12,7 +12,7 @@ class Widget < ActiveRecord::Base
 			body_font_size: "14px",
 			body_font: "'Open Sans', sans-serif",
 			tab_font: "sans-serif",
-			tab_font_size: "18px",
+			tab_font_size: "16px",
 			tab_text_align: "center",
 			tab_text: "Feedback",
 			tab_width: "100px",
