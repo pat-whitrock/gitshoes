@@ -132,8 +132,15 @@
       dataType:  "html",
       success:   function(data) {
         console.log('success');
+        // Must namespace form inputs
         gitshoesCloneZoomFormDiv.html(data)
-        gitshoesCloneZoomFormDiv.find('#new-issue').attr('id', 'clone-zoom-new-issue')
+        gitshoesCloneZoomFormDiv.find('#new_issue').attr('id', 'clone-zoom-new-issue');
+        feedbackCloneZoomNewIssue = jQuery('#clone-zoom-new-issue');
+        feedbackCloneZoomNewIssue.find('#issue_email').attr('id', 'feedback-clone-zoom-issue-email');
+        feedbackCloneZoomNewIssue.find('#issue_title').attr('id', 'feedback-clone-zoom-issue-title');
+        feedbackCloneZoomNewIssue.find('#issue_system').attr('id', 'feedback-clone-zoom-issue-system');
+        feedbackCloneZoomNewIssue.find('#issue_system').attr('id', 'feedback-clone-zoom-issue-system');
+        feedbackCloneZoomNewIssue.find('#feedback-submit').attr('id', 'feedback-clone-zoom-feedback-submit').attr('type', 'button');
         $("form#clone-zoom-new-issue").css({
           "margin": "0"
         });
