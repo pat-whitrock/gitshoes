@@ -1,3 +1,5 @@
+<%= javascript_include_tag "http://localhost:3000/repos/#{@widget.id}/widget/edit.js" %>
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="page-header">
@@ -32,7 +34,7 @@
       <%= render 'widget_form' %>
     </div>
     <div class="col-md-8">
-      <%= image_tag 'http://upload.wikimedia.org/wikipedia/commons/e/e8/Imac_16-9.png', size: "585x450" %>
+      <%= render 'widget_view' %>
     </div>
   </div>
 </div>

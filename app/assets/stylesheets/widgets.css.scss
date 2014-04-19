@@ -9,3 +9,11 @@ div.widget-form-section {
 div.widget-form-section.active {
 	display: block;
 }
+
+div.widget-view {
+	height: 500px;
+	width: 100%;
+	border: 4px solid #000;
+	margin-bottom: 20px;
+	position: relative;
+}

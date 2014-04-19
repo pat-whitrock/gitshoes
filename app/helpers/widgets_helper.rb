@@ -1,2 +1,2 @@
-module WidgetHelper
+module WidgetsHelper
 end

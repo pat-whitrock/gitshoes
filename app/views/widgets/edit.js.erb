@@ -1,0 +1,26 @@
+$(document).ready(function() {
+  (function() {
+    var feedbackClone = $('#feedback-container').clone();
+    var feedbackCloneTab = feedbackClone.find('#gitshoes-button');
+    var feedbackCloneForm = feedbackClone.find('#gitshoes-form');
+
+    feedbackClone.attr('id', 'feedback-clone');
+    feedbackClone.css('position', 'absolute');
+
+    feedbackCloneForm.css('display', 'block');
+
+    var gitshoesFormUrl = "<%= new_issue_url(@repo) %>";
+    jQuery.ajax({
+      url:       gitshoesFormUrl,
+      dataType:  "html",
+      success:   function(data) {
+        feedbackCloneForm.html(data)
+        $("form#new_issue").css({
+          "margin": "0"
+        });
+      }
+    });
+
+    feedbackClone.appendTo($('.widget-view'));
+  })();
+});
