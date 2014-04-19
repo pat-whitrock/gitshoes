@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'repos' => 'repos#index'
   delete 'repos/:id' => 'repos#destroy', as: 'delete_repo'
 
-  get 'repos/:id/widget/edit' => 'widgets#edit'
+  get 'repos/:id/widget/edit' => 'widgets#edit', as: 'edit_widget'
   patch 'repos/:id/widget' => 'widgets#update'
 
   get '/auth/github' => 'auth#github', as: 'github_login'
