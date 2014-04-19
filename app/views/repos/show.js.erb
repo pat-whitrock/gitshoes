@@ -46,6 +46,7 @@
       
       var gitshoesInsert = $("<div id='feedback-container'><div id='gitshoes-button'></div></div>");
       gitshoesInsert.css({
+        "z-index": "1000",
         "position": "<%= @widget.position %>",
         "<%= @widget.orientation %>": "<%= @widget.offset %>",
         "<%= @widget.edge %>": 0,
