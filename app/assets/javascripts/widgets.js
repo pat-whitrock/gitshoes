@@ -1,3 +1,5 @@
+// Functions for switching active form section and view
+
 function switchToOrientationMac() {
 	if ($('#mac-orientation-container').is(':hidden')) {
 		$('#mac-orientation-container').toggle();
@@ -43,6 +45,8 @@ function switchToText() {
 	switchToZoomMac();
 }
 
+// Call functions to switch active form sections and views
+
 $(function() {
 	$('.switch-to-color').on('click', function(e) {
 		e.preventDefault();
@@ -70,6 +74,8 @@ $(function() {
 		switchToText();
 	});
 });
+
+// Functions for live update Color
 
 function updateWidgetTabTextColor() {
 	$('#widget_tab_font_color').on('change', function(e) {
@@ -101,6 +107,8 @@ function updateWidgetFormBorderColor() {
 	});
 }
 
+// Call functions for live update Color
+
 $(function() {
 	updateWidgetTabTextColor();
 	updateWidgetTabBackgroundColor();
@@ -108,6 +116,8 @@ $(function() {
 	updateWidgetFormBackgroundColor();
 	updateWidgetFormBorderColor();
 });
+
+// Functions for live update Font
 
 function updateWidgetTabFont() {
 	$('#widget_tab_font').on('change', function(e) {
@@ -157,6 +167,8 @@ function updateWidgetButtonFontSize() {
 	});
 }
 
+// Call functions for live update Font
+
 $(function() {
 	updateWidgetTabFont();
 	updateWidgetTabFontSize();
@@ -168,6 +180,123 @@ $(function() {
 	updateWidgetButtonFontSize();
 });
 
+// Leaving space for Orientation
 
 
 
+// Functions for live update Size
+
+function updateWidgetTabWidth() {
+	$('#widget_tab_width').on('change', function(e) {
+		$('#feedback-clone-zoom-gitshoes-button').css('width', $(this).val());
+	});
+}
+
+function updateWidgetTabHeight() {
+	$('#widget_tab_height').on('change', function(e) {
+		$('#feedback-clone-zoom-gitshoes-button').css('height', $(this).val());
+	});
+}
+
+function updateWidgetTabLineHeight() {
+	$('#widget_tab_line_height').on('change', function(e) {
+		$('#feedback-clone-zoom-gitshoes-button').css('line-height', $(this).val());
+	});
+}
+
+function updateWidgetTabPadding() {
+	$('#widget_tab_padding').on('change', function(e) {
+		$('#feedback-clone-zoom-gitshoes-button').css('padding', $(this).val());
+	});
+}
+
+function updateWidgetTabEdges() {
+	$('#widget_tab_edge_radius').on('change', function(e) {
+		$('#feedback-clone-zoom-gitshoes-button').css('border-radius', $(this).val());
+	});
+}
+
+function updateWidgetFormWidth() {
+	$('#widget_form_width').on('change', function(e) {
+		$('#gitshoes-clone-zoom-form').css('width', $(this).val());
+	});
+}
+
+function updateWidgetFormEdges() {
+	$('#widget_form_border_radius').on('change', function(e) {
+		$('#gitshoes-clone-zoom-form').css('border-radius', $(this).val());
+	});
+}
+
+function updateWidgetFormBorderWidth() {
+	$('#widget_form_border_thickness').on('change', function(e) {
+		$('#gitshoes-clone-zoom-form').css('border-width', $(this).val());
+	});
+}
+
+// Call functions for live update Size
+
+$(function() {
+	updateWidgetTabWidth();
+	updateWidgetTabHeight();
+	updateWidgetTabLineHeight();
+	updateWidgetTabPadding();
+	updateWidgetTabEdges();
+	updateWidgetFormWidth();
+	updateWidgetFormEdges();
+	updateWidgetFormBorderWidth();
+});
+
+function updateWidgetTabText() {
+	$('#widget_tab_text').on('change', function(e) {
+		$('#feedback-clone-zoom-gitshoes-button').text($(this).val());
+	});
+}
+
+function updateWidgetTitleText() {
+	$('#widget_title_field_text').on('change', function(e) {
+		$($('#clone-zoom-new-issue').children('label')[1]).text($(this).val());
+	});
+}
+
+function updateWidgetDescriptionText() {
+	$('#widget_description_field_text').on('change', function(e) {
+		$($('#clone-zoom-new-issue').children('label')[2]).text($(this).val());
+	});
+}
+
+function updateWidgetButtonText() {
+	$('#widget_button_text').on('change', function(e) {
+		$('#clone-zoom-new-issue input:button').val($(this).val());
+	});
+}
+
+function updateWidgetButtonText() {
+	$('#widget_button_text').on('change', function(e) {
+		$('#clone-zoom-new-issue input:button').val($(this).val());
+	});
+}
+
+function updateWidgetButtonSuccessText() {
+	$('#widget_button_success_text').on('change', function(e) {
+		$('#gitshoes-clone-zoom-form').slideUp(function() {
+			$('#feedback-clone-zoom-gitshoes-button').fadeOut(400, function() {
+				$(this).html($('#widget_button_success_text').val()).delay(500).fadeIn(function() {
+					$('#gitshoes-clone-zoom-form').delay(1000).slideDown(function() {
+						$('#feedback-clone-zoom-gitshoes-button').fadeOut(400, function() {
+							$(this).html($('#widget_tab_text').val()).delay(500).fadeIn();
+						})
+					});
+				})
+			});
+		});
+	});
+}
+
+$(function() {
+	updateWidgetTabText();
+	updateWidgetTitleText();
+	updateWidgetDescriptionText();
+	updateWidgetButtonText();
+	updateWidgetButtonSuccessText();
+});
