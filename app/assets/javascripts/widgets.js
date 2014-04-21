@@ -108,3 +108,66 @@ $(function() {
 	updateWidgetFormBackgroundColor();
 	updateWidgetFormBorderColor();
 });
+
+function updateWidgetTabFont() {
+	$('#widget_tab_font').on('change', function(e) {
+		$('#feedback-clone-zoom-gitshoes-button').css('font-family', $(this).val());
+	});
+}
+
+function updateWidgetTabFontSize() {
+	$('#widget_tab_font_size').on('change', function(e) {
+		$('#feedback-clone-zoom-gitshoes-button').css('font-size', $(this).val());
+	});
+}
+
+function updateWidgetBodyFont() {
+	$('#widget_body_font').on('change', function(e) {
+		$('#clone-zoom-new-issue label').css('font-family', $(this).val());
+	});
+}
+
+function updateWidgetBodyFontSize() {
+	$('#widget_body_font_size').on('change', function(e) {
+		$('#clone-zoom-new-issue label').css('font-size', $(this).val());
+	});
+}
+
+function updateWidgetFieldFont() {
+	$('#widget_field_font').on('change', function(e) {
+		$('#clone-zoom-new-issue').children('input:text, textarea').css('font-family', $(this).val());
+	});
+}
+
+function updateWidgetFieldFontSize() {
+	$('#widget_field_font_size').on('change', function(e) {
+		$('#clone-zoom-new-issue').children('input:text, textarea').css('font-size', $(this).val());
+	});
+}
+
+function updateWidgetButtonFont() {
+	$('#widget_button_font').on('change', function(e) {
+		$('#clone-zoom-new-issue input:button').css('font-family', $(this).val());
+	});
+}
+
+function updateWidgetButtonFontSize() {
+	$('#widget_button_font_size').on('change', function(e) {
+		$('#clone-zoom-new-issue input:button').css('font-size', $(this).val());
+	});
+}
+
+$(function() {
+	updateWidgetTabFont();
+	updateWidgetTabFontSize();
+	updateWidgetBodyFont();
+	updateWidgetBodyFontSize();
+	updateWidgetFieldFont();
+	updateWidgetFieldFontSize();
+	updateWidgetButtonFont();
+	updateWidgetButtonFontSize();
+});
+
+
+
+
