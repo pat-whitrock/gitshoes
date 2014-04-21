@@ -182,7 +182,35 @@ $(function() {
 
 // Leaving space for Orientation
 
+function updateWidgetEdgeDistance() {
+	$('#widget_edge').on('change', function(e) {
+		$('#feedback-clone').css('top', '');
+		$('#feedback-clone').css('bottom', '');
+		$('#feedback-clone').css($(this).val(), 0);
+	});
+}
 
+function updateWidgetOrientation() {
+	$('#widget_orientation').on('change', function(e) {
+		$('#feedback-clone').css('left', '');
+		$('#feedback-clone').css('right', '');
+		$('#feedback-clone').css($(this).val(), $('#widget_offset').val());
+		$('#feedback-clone-gitshoes-button').css('float', $(this).val());
+		$('#gitshoes-clone-form').css('float', $(this).val());
+	});
+}
+
+function updateWidgetOffset() {
+	$('#widget_offset').on('change', function(e) {
+		$('#feedback-clone').css($('#widget_orientation').val(), $(this).val());
+	});
+}
+
+$(function() {
+	updateWidgetEdgeDistance();
+	updateWidgetOrientation();
+	updateWidgetOffset();
+});
 
 // Functions for live update Size
 
