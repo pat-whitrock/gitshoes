@@ -46,42 +46,46 @@
       
       var gitshoesInsert = $("<div id='feedback-container'><div id='gitshoes-button'></div></div>");
       gitshoesInsert.css({
-        "position": "fixed",
-        "right": 30,
-        "bottom": 0,
-        "width": "300px"
+        "z-index": "1000",
+        "position": "<%= @widget.position %>",
+        "<%= @widget.orientation %>": "<%= @widget.offset %>",
+        "<%= @widget.edge %>": 0,
+        "width": "<%= @widget.form_width %>"
       });
       gitshoesInsert.appendTo('body');
 
       var gitshoesFloater = $('#gitshoes-button')
-      gitshoesFloater.text("Feedback");
+      gitshoesFloater.text("<%= @widget.tab_text %>");
       gitshoesFloater.css({
-        "width": "auto",
-        "height": "auto",
-        "line-height": "30px",
-        "margin": "0px",
-        "font-size": "18px",
-        "text-align": "center",
-        "padding": "3px 10px 3px 10px",
-        "border-top-left-radius": "5px",
-        "border-top-right-radius": "5px",
-        "background-color": "#357ebd",
-        "color": "white",
-        "cursor": "pointer",
-        "float": "right",
-        "font-family": "'Open Sans', sans-serif",
-        "display": "inline-block"
+        "width": "<%= @widget.tab_width %>",
+        "height": "<%= @widget.tab_height %>",
+        "line-height": "<%= @widget.tab_line_height %>",
+        "margin": "<%= @widget.tab_margin %>",
+        "font-size": "<%= @widget.tab_font_size %>",
+        "text-align": "<%= @widget.tab_text_align %>",
+        "padding": "<%= @widget.tab_padding %>",
+        "border-top-left-radius": "<%= @widget.form_border_radius %>",
+        "border-top-right-radius": "<%= @widget.form_border_radius %>",
+        "background-color": "<%= @widget.tab_background_color %>",
+        "color": "<%= @widget.tab_font_color %>",
+        "cursor": "<%= @widget.tab_cursor %>",
+        "float": "<%= @widget.orientation %>",
+        "font-family": "<%= @widget.tab_font %>",
+        "display": "<%= @widget.tab_display %>"
       });
 
 
       var gitshoesFormDiv = $("<div id='gitshoes-form'></div>");
       gitshoesFormDiv.css({
         "padding": "5px 20px 5px 20px",
-        "background-color": "white",
-        "width": "300px",
-        "float": "right",
-        "border": "1px solid #9a9a9a",
-        "border-top-left-radius": "5px"
+        "background-color": "<%= @widget.form_background_color %>",
+        "width": "<%= @widget.form_width %>",
+        "float": "<%= @widget.orientation %>",
+        "border": "<%= @widget.form_border_thickness %> <%= @widget.form_border_type %> <%= @widget.form_border_color %>",
+        "border-top-left-radius": "<%= @widget.tab_edge_radius %>",
+        "font-size": "<%= @widget.body_font_size %>",
+        "color": "<%= @widget.body_font_color %>",
+        "font-family": "<%= @widget.body_font %>"
       });
       gitshoesFormDiv.appendTo('#feedback-container');
 
@@ -99,6 +103,10 @@
           $("form#new_issue").css({
             "margin": "0"
           });
+          $("form #feedback-submit").css({
+            "color": "<%= @widget.button_color %>",
+            "background-color": "<%= @widget.button_background_color %>"
+          });
           $("form#new_issue").on("submit", function(e){
             e.preventDefault();
             var bodyText = jQuery('#issue_system').val();
@@ -115,7 +123,7 @@
                   jQuery('#issue_title').val("");
                   jQuery('#issue_body').val("");
                   jQuery('#issue_system').val("");
-                  jQuery('#gitshoes-button').fadeOut(400).html('Thank you!').delay(500).fadeIn();
+                  jQuery('#gitshoes-button').fadeOut(400).html("<%= @widget.button_success_text %>").delay(500).fadeIn();
                 }
               })
             };
@@ -133,14 +141,14 @@
           jQuery('#issue_title').val("");
           jQuery('#issue_body').val("");
           jQuery('#issue_body').val("");
-          jQuery('#gitshoes-button').fadeOut(400).html('Thank you!').delay(500).fadeIn();
+          jQuery('#gitshoes-button').fadeOut(400).html("<%= @widget.button_success_text %>").delay(500).fadeIn();
         });
       };
 
       // click event for slide up or slide down
       jQuery('div#gitshoes-button').on('click', function() { 
-        if (jQuery('#gitshoes-button').html() == 'Thank you!'){
-          jQuery('#gitshoes-button').html('Feedback');
+        if (jQuery('#gitshoes-button').html() == "<%= @widget.button_success_text %>"){
+          jQuery('#gitshoes-button').html("<%= @widget.button_text %>");
         };
 
         if(formDiv.css("display") == "none"){

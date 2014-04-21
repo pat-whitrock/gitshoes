@@ -19,7 +19,7 @@
 </br>
 <div class="btn-group">
 <%= link_to 'Github', @repo.address, :target => "_blank", class: "btn btn-default" %>
-<%= link_to 'Preview', preview_repo_path(@repo), class: "btn btn-primary", id: "preview-btn", :data => {:toggle => "modal", :target => "#previewModal"} %>
+<%= link_to 'Edit', edit_widget_path(@repo.widget), class: "btn btn-primary", id: "edit-btn" %>
 <%= link_to 'Remove', delete_repo_path(@repo), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger" %>
 </div>
 

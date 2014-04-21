@@ -44,16 +44,29 @@ class ReposController < ApplicationController
 			@repo = Repo.new(repo_params)
 			@repo.token = current_user.token
 			@repo.users << current_user
+			@widget = Widget.create_default
+			@repo.widget = @widget
 			if @repo.save
-				redirect_to repos_path
+				redirect_to @repo
 			else
-				render :new
+				@repo = Repo.new(repo_params)
+				@repo.token = current_user.token
+				@repo.users << current_user
+				if @repo.save
+					redirect_to repos_path
+				else
+					render :new
+				end
 			end
 		end
 	end
 
 	def show
-		@repo = Repo.find(params[:id])
+		if request.referer == new_repo_url
+		  return redirect_to repos_path
+		end
+		@repo = Repo.find_by(:id => params[:id])
+		@widget = @repo.widget
 		respond_to do |format|
 			format.html { render :partial => "show"}
 			format.js   # just renders messages/create.js.erb
@@ -72,10 +85,6 @@ class ReposController < ApplicationController
  		else
  			render :edit
  		end
-	end
-
-	def edit
-		@repo = Repo.find(params[:id])
 	end
 
 	def destroy

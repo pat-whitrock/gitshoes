@@ -1,0 +1,125 @@
+// Place all the styles related to the widget controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#widget_form_buttons {
+	margin-left: 20px;
+	margin-bottom: 25px
+}
+
+div#widget_form_buttons input.btn-default {
+	margin-left: 10px;
+}
+
+ul.edit-widget-tabs {
+	margin: 0px;
+}
+
+ul.edit-widget-tabs li.active {
+	background-color: #357ebd;
+	border-radius: 5px 5px 0px 0px;
+}
+
+div.widget-form-box {
+	margin-top: 20px;
+}
+
+ul.edit-widget-tabs li.active a {
+	color: #ffffff;
+	border-radius: 5px 5px 0px 0px;
+}
+
+ul.edit-widget-tabs li a {
+	font-size: 18px;
+	padding-right: 3.8px;
+	padding-left: 3.8px;
+}
+
+ul.edit-widget-tabs li a:hover {
+	text-decoration: none;
+}
+
+div.widget-form {
+	overflow-y: auto;
+}
+
+div.widget-form-section {
+	display: none;
+	height: 450px;
+	overflow-y: auto;
+}
+
+div.widget-form-section.active {
+	display: block;
+}
+
+div#widget_form {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	border-color: #9a9a9a;
+}
+
+div.widget-form-box input {
+	max-width: 100%;
+}
+
+div.form-group {
+	max-width: 100%;
+	margin-left: 20px;
+}
+
+.form-group .controls {
+	margin-top: 5px;
+}
+
+input.form-control {
+	max-width: 100%;
+}
+
+div#mac-view-container {
+	position: relative;
+	width: 730px;
+	height: 595px;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+
+div.widget-view {
+	height: 378px;
+	margin-bottom: 20px;
+	position: relative;
+	left: 29px;
+}
+
+div.mac-screen {
+	position: absolute;
+	width: 672px;
+	background-color: none;
+	color: black;
+	top: 0;
+	left: 25;
+	margin-top: 29px;
+	padding-left: 10px;
+	padding-top: 10px;
+	font-size: 16px;
+	z-index: 1;
+}
+
+img.zoomed-imac {
+	margin-left: -500px;
+	margin-top: -253px;
+}
+
+div.widget-view-zoom {
+	margin-right: 82px;
+	margin-top: -316px;
+	border: green;
+	background-color: red;
+	position: relative;
+	left: 29px;
+}
+
+div#mac-orientation-container {
+	display: none;
+}
