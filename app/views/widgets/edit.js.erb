@@ -1,41 +1,3 @@
-// $(document).ready(function() {
-//   (function() {
-//     // Clone widget and assign parts to variables
-//     var feedbackClone = $('#feedback-container').clone();
-//     var feedbackCloneTab = feedbackClone.find('#gitshoes-button');
-//     var feedbackCloneForm = feedbackClone.find('#gitshoes-form');
-
-//     // Align widget to bottom of div
-//     feedbackClone.attr('id', 'feedback-clone');
-//     feedbackClone.css('position', 'absolute');
-//     feedbackCloneTab.attr('id', 'feedback-clone-gitshoes-button');
-//     feedbackCloneForm.attr('id', 'feedback-clone-gitshoes-form');
-
-//     // Display form div
-//     feedbackCloneForm.css('display', 'block');
-
-//     // Fill form div with actual form
-//     var feedbackCloneFormUrl = "<%= new_issue_url(@repo) %>";
-//     jQuery.ajax({
-//       url:       feedbackCloneFormUrl,
-//       dataType:  "html",
-//       success:   function(data) {
-//         feedbackCloneForm.html(data)
-//         // Namespace cloned form
-//         var feedbackCloneNewIssue = $("form#new_issue");
-//         feedbackCloneNewIssue.attr('id', 'feedback-clone-new-issue');
-//         feedbackCloneNewIssue.css('margin', '0');
-//         feedbackCloneNewIssue.find('#issue_email').attr('id', 'feedback-clone-issue-email');
-//         feedbackCloneNewIssue.find('#issue_title').attr('id', 'feedback-clone-issue-title');
-//         feedbackCloneNewIssue.find('#issue_system').attr('id', 'feedback-clone-issue-system');
-//         feedbackCloneNewIssue.find('#issue_system').attr('id', 'feedback-clone-issue-system');
-//         feedbackCloneNewIssue.find('#feedback-submit').attr('id', 'feedback-clone-feedback-submit').attr('type', 'button');
-//       }
-//     });
-
-//     feedbackClone.appendTo($('.widget-view'));
-//   })();
-
 //   (function() {
 //     // Clone widget and assign parts to variables
 //     var feedbackCloneZoom = $('#feedback-container').clone();
@@ -74,7 +36,120 @@
 //   })();
 // });
 
-// Create widget
+// $(document).ready(function() {
+//   (function() {
+//     // Clone widget and assign parts to variables
+//     var feedbackClone = $('#feedback-container').clone();
+//     var feedbackCloneTab = feedbackClone.find('#gitshoes-button');
+//     var feedbackCloneForm = feedbackClone.find('#gitshoes-form');
+
+//     // Align widget to bottom of div
+//     feedbackClone.attr('id', 'feedback-clone');
+//     feedbackClone.css('position', 'absolute');
+//     feedbackCloneTab.attr('id', 'feedback-clone-gitshoes-button');
+//     feedbackCloneForm.attr('id', 'feedback-clone-gitshoes-form');
+
+//     // Display form div
+//     feedbackCloneForm.css('display', 'block');
+
+//     // Fill form div with actual form
+//     var feedbackCloneFormUrl = "<%= new_issue_url(@repo) %>";
+//     jQuery.ajax({
+//       url:       feedbackCloneFormUrl,
+//       dataType:  "html",
+//       success:   function(data) {
+//         feedbackCloneForm.html(data)
+//         // Namespace cloned form
+//         var feedbackCloneNewIssue = $("form#new_issue");
+//         feedbackCloneNewIssue.attr('id', 'feedback-clone-new-issue');
+//         feedbackCloneNewIssue.css('margin', '0');
+//         feedbackCloneNewIssue.find('#issue_email').attr('id', 'feedback-clone-issue-email');
+//         feedbackCloneNewIssue.find('#issue_title').attr('id', 'feedback-clone-issue-title');
+//         feedbackCloneNewIssue.find('#issue_system').attr('id', 'feedback-clone-issue-system');
+//         feedbackCloneNewIssue.find('#issue_system').attr('id', 'feedback-clone-issue-system');
+//         feedbackCloneNewIssue.find('#feedback-submit').attr('id', 'feedback-clone-feedback-submit').attr('type', 'button');
+//       }
+//     });
+
+//     feedbackClone.appendTo($('.widget-view'));
+//   })();
+
+// Create orientation widget
+(function() {
+  jQuery(document).ready(function($) {
+    var gitshoesCloneInsert = $("<div id='feedback-clone'><div id='feedback-clone-gitshoes-button'></div></div>");
+    gitshoesCloneInsert.css({
+      "z-index": "900",
+      "position": "absolute",
+      "<%= @widget.orientation %>": "<%= @widget.offset %>",
+      "<%= @widget.edge %>": 0,
+      "width": "<%= @widget.form_width %>"
+    });
+    gitshoesCloneInsert.appendTo(jQuery('.widget-view'));
+
+    var gitshoesCloneFloater = $('#feedback-clone-gitshoes-button')
+    gitshoesCloneFloater.text("<%= @widget.tab_text %>");
+    gitshoesCloneFloater.css({
+      "width": "<%= @widget.tab_width %>",
+      "height": "<%= @widget.tab_height %>",
+      "line-height": "<%= @widget.tab_line_height %>",
+      "margin": "<%= @widget.tab_margin %>",
+      "font-size": "<%= @widget.tab_font_size %>",
+      "text-align": "<%= @widget.tab_text_align %>",
+      "padding": "<%= @widget.tab_padding %>",
+      "border-top-left-radius": "<%= @widget.form_border_radius %>",
+      "border-top-right-radius": "<%= @widget.form_border_radius %>",
+      "background-color": "<%= @widget.tab_background_color %>",
+      "color": "<%= @widget.tab_font_color %>",
+      "cursor": "<%= @widget.tab_cursor %>",
+      "float": "<%= @widget.orientation %>",
+      "font-family": "<%= @widget.tab_font %>",
+      "display": "<%= @widget.tab_display %>"
+    });
+
+    var gitshoesCloneFormDiv = $("<div id='gitshoes-clone-form'></div>");
+    gitshoesCloneFormDiv.css({
+      "padding": "5px 20px 5px 20px",
+      "background-color": "<%= @widget.form_background_color %>",
+      "width": "<%= @widget.form_width %>",
+      "float": "<%= @widget.orientation %>",
+      "border": "<%= @widget.form_border_thickness %> <%= @widget.form_border_type %> <%= @widget.form_border_color %>",
+      "border-top-left-radius": "<%= @widget.tab_edge_radius %>",
+      "font-size": "<%= @widget.body_font_size %>",
+      "color": "<%= @widget.body_font_color %>",
+      "font-family": "<%= @widget.body_font %>"
+    });
+    gitshoesCloneFormDiv.appendTo('#feedback-clone');
+
+    //save formDiv in a variable
+    var gitshoesCloneFormDiv = jQuery('#gitshoes-clone-form');
+    gitshoesCloneFormDiv.css({"display": "none"});
+
+    // ajax starts here
+    var gitshoesCloneFormUrl = "<%= new_issue_url(@repo) %>";
+    jQuery.ajax({
+      url:       gitshoesCloneFormUrl,
+      dataType:  "html",
+      success:   function(data) {
+        console.log('success');
+        // Must namespace form inputs
+        gitshoesCloneFormDiv.html(data)
+        gitshoesCloneFormDiv.find('#new_issue').attr('id', 'clone-new-issue');
+        feedbackCloneNewIssue = jQuery('#clone-new-issue');
+        feedbackCloneNewIssue.find('#issue_email').attr('id', 'feedback-clone-issue-email');
+        feedbackCloneNewIssue.find('#issue_title').attr('id', 'feedback-clone-issue-title');
+        feedbackCloneNewIssue.find('#issue_system').attr('id', 'feedback-clone-issue-system');
+        feedbackCloneNewIssue.find('#issue_system').attr('id', 'feedback-clone-issue-system');
+        feedbackCloneNewIssue.find('#feedback-submit').attr('id', 'feedback-clone-feedback-submit').attr('type', 'button');
+        $("form#clone-new-issue").css({
+          "margin": "0"
+        });
+      }
+    });
+  });
+})();
+
+// Create zoom widget
 (function() {
   jQuery(document).ready(function($) {
     var gitshoesCloneZoomInsert = $("<div id='feedback-clone-zoom'><div id='feedback-clone-zoom-gitshoes-button'></div></div>");
