@@ -81,7 +81,7 @@
     gitshoesCloneInsert.css({
       "z-index": "900",
       "position": "absolute",
-      "<%= @widget.orientation %>": "<%= @widget.offset %>",
+      "<%= @widget.orientation %>": "<%= ((@widget.offset.split(/[^\d|.]/).join.to_i) / 2.0).to_s + 'px' %>",
       "<%= @widget.edge %>": 0,
       "width": "<%= @widget.form_width %>"
     });
@@ -90,15 +90,15 @@
     var gitshoesCloneFloater = $('#feedback-clone-gitshoes-button')
     gitshoesCloneFloater.text("<%= @widget.tab_text %>");
     gitshoesCloneFloater.css({
-      "width": "<%= @widget.tab_width %>",
-      "height": "<%= @widget.tab_height %>",
-      "line-height": "<%= @widget.tab_line_height %>",
-      "margin": "<%= @widget.tab_margin %>",
-      "font-size": "<%= @widget.tab_font_size %>",
+      "width": "<%= ((@widget.tab_width.split(/[^\d|.]/).join.to_i) / 2.0).to_s + 'px' %>",
+      "height": "<%= ((@widget.tab_height.split(/[^\d|.]/).join.to_i) / 2.0).to_s + 'px' %>",
+      "line-height": "<%= ((@widget.tab_line_height.split(/[^\d|.]/).join.to_i) / 2.0).to_s + 'px' %>",
+      "margin": "<%= ((@widget.tab_margin.split(/[^\d|.]/).join.to_i) / 2.0).to_s + 'px' %>",
+      "font-size": "<%= ((@widget.tab_font_size.split(/[^\d|.]/).join.to_i) / 2.0).to_s + 'px' %>",
       "text-align": "<%= @widget.tab_text_align %>",
-      "padding": "<%= @widget.tab_padding %>",
-      "border-top-left-radius": "<%= @widget.form_border_radius %>",
-      "border-top-right-radius": "<%= @widget.form_border_radius %>",
+      "padding": "<%= ((@widget.tab_padding.split(' ').map{ |x| ((x.split(/[^\d|.]/).join.to_i) / 2).to_s + 'px' }.join(' '))) %>",
+      "border-top-left-radius": "<%= ((@widget.form_border_radius.split(/[^\d|.]/).join.to_i) / 2.0).to_s + 'px' %>",
+      "border-top-right-radius": "<%= ((@widget.form_border_radius.split(/[^\d|.]/).join.to_i) / 2.0).to_s + 'px' %>",
       "background-color": "<%= @widget.tab_background_color %>",
       "color": "<%= @widget.tab_font_color %>",
       "cursor": "<%= @widget.tab_cursor %>",
