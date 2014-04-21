@@ -131,7 +131,6 @@
       url:       gitshoesCloneFormUrl,
       dataType:  "html",
       success:   function(data) {
-        console.log('success');
         // Must namespace form inputs
         gitshoesCloneFormDiv.html(data)
         gitshoesCloneFormDiv.find('#new_issue').attr('id', 'clone-new-issue');
@@ -206,7 +205,6 @@
       url:       gitshoesCloneZoomFormUrl,
       dataType:  "html",
       success:   function(data) {
-        console.log('success');
         // Must namespace form inputs
         gitshoesCloneZoomFormDiv.html(data)
         gitshoesCloneZoomFormDiv.find('#new_issue').attr('id', 'clone-zoom-new-issue');
