@@ -1,3 +1,17 @@
+function switchToOrientationMac() {
+	if ($('#mac-orientation-container').is(':hidden')) {
+		$('#mac-orientation-container').toggle();
+		$('#mac-zoom-container').toggle();
+	}
+}
+
+function switchToZoomMac() {
+	if ($('#mac-zoom-container').is(':hidden')) {
+		$('#mac-orientation-container').toggle();
+		$('#mac-zoom-container').toggle();
+	}
+}
+
 function removeActive() {
 	$('.widget-form-section').each(function() {
 		$(this).removeClass('active');
@@ -6,22 +20,27 @@ function removeActive() {
 
 function switchToColor() {
 	$('#widget-color').addClass('active');
+	switchToZoomMac();
 }
 
 function switchToFont() {
 	$('#widget-font').addClass('active');
+	switchToZoomMac();
 }
 
 function switchToOrientation() {
 	$('#widget-orientation').addClass('active');
+	switchToOrientationMac();
 }
 
 function switchToSize() {
 	$('#widget-size').addClass('active');
+	switchToZoomMac();
 }
 
 function switchToText() {
 	$('#widget-text').addClass('active');
+	switchToZoomMac();
 }
 
 $(function() {
@@ -50,4 +69,5 @@ $(function() {
 		removeActive();
 		switchToText();
 	});
+
 })
