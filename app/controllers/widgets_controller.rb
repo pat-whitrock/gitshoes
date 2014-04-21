@@ -19,6 +19,17 @@ class WidgetsController < ApplicationController
  		end
 	end
 
+	def update_default
+		@widget = Widget.find(params[:id])
+		@repo = @widget.repo
+		@default_widget = Widget.create_default
+		@default_widget.id = params[:id]
+		binding.pry
+		@widget.destroy
+		@repo.widget = @default_widget
+		redirect_to repos_path
+	end
+
 	private
 	def widget_params
 			params.require(:widget).permit(:position, :edge, :color,

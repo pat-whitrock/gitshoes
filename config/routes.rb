@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   get 'repos/:id/widget/edit' => 'widgets#edit', as: 'edit_widget'
   patch 'repos/:id/widget' => 'widgets#update'
+  patch 'repos/:id/default_widget' => 'widgets#update_default', as: 'update_default_widget'
 
   get '/auth/github' => 'auth#github', as: 'github_login'
   get '/auth/github/callback' => 'sessions#create', as: 'github_callback'
