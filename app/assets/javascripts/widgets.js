@@ -232,48 +232,58 @@ $(function() {
 function updateWidgetTabWidth() {
 	$('#widget_tab_width').on('change', function(e) {
 		$('#feedback-clone-zoom-gitshoes-button').css('width', $(this).val());
+		$('#feedback-clone-gitshoes-button').css('width', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
 function updateWidgetTabHeight() {
 	$('#widget_tab_height').on('change', function(e) {
 		$('#feedback-clone-zoom-gitshoes-button').css('height', $(this).val());
+		$('#feedback-clone-gitshoes-button').css('height', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
 function updateWidgetTabLineHeight() {
 	$('#widget_tab_line_height').on('change', function(e) {
 		$('#feedback-clone-zoom-gitshoes-button').css('line-height', $(this).val());
+		$('#feedback-clone-gitshoes-button').css('line-height', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
 function updateWidgetTabPadding() {
 	$('#widget_tab_padding').on('change', function(e) {
 		$('#feedback-clone-zoom-gitshoes-button').css('padding', $(this).val());
+		$('#feedback-clone-gitshoes-button').css('padding', $.map($('#widget_tab_padding').val().split(" "), function(val, i) { return ((parseFloat(val.split(/[^\d|.]/).join(''))/2).toString() + 'px') }).join(' '))
 	});
 }
 
 function updateWidgetTabEdges() {
 	$('#widget_tab_edge_radius').on('change', function(e) {
-		$('#feedback-clone-zoom-gitshoes-button').css('border-radius', $(this).val());
+		$('#feedback-clone-zoom-gitshoes-button').css('border-top-left-radius', $(this).val());
+		$('#feedback-clone-zoom-gitshoes-button').css('border-top-right-radius', $(this).val());
+		$('#feedback-clone-gitshoes-button').css('border-top-left-radius', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
+		$('#feedback-clone-gitshoes-button').css('border-top-right-radius', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
 function updateWidgetFormWidth() {
 	$('#widget_form_width').on('change', function(e) {
 		$('#gitshoes-clone-zoom-form').css('width', $(this).val());
+		$('#gitshoes-clone-form').css('width', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
 function updateWidgetFormEdges() {
 	$('#widget_form_border_radius').on('change', function(e) {
 		$('#gitshoes-clone-zoom-form').css('border-radius', $(this).val());
+		$('#gitshoes-clone-form').css('border-radius', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
 function updateWidgetFormBorderWidth() {
 	$('#widget_form_border_thickness').on('change', function(e) {
 		$('#gitshoes-clone-zoom-form').css('border-width', $(this).val());
+		$('#gitshoes-clone-form').css('border-width', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
