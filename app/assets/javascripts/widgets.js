@@ -127,48 +127,56 @@ $(function() {
 function updateWidgetTabFont() {
 	$('#widget_tab_font').on('change', function(e) {
 		$('#feedback-clone-zoom-gitshoes-button').css('font-family', $(this).val());
+		$('#feedback-clone-gitshoes-button').css('font-family', $(this).val());
 	});
 }
 
 function updateWidgetTabFontSize() {
 	$('#widget_tab_font_size').on('change', function(e) {
 		$('#feedback-clone-zoom-gitshoes-button').css('font-size', $(this).val());
+		$('#feedback-clone-gitshoes-button').css('font-size', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
 function updateWidgetBodyFont() {
 	$('#widget_body_font').on('change', function(e) {
 		$('#clone-zoom-new-issue label').css('font-family', $(this).val());
+		$('#clone-new-issue label').css('font-family', $(this).val());
 	});
 }
 
 function updateWidgetBodyFontSize() {
 	$('#widget_body_font_size').on('change', function(e) {
 		$('#clone-zoom-new-issue label').css('font-size', $(this).val());
+		$('#clone-new-issue label').css('font-size', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
 function updateWidgetFieldFont() {
 	$('#widget_field_font').on('change', function(e) {
 		$('#clone-zoom-new-issue').children('input:text, textarea').css('font-family', $(this).val());
+		$('#clone-new-issue').children('input:text, textarea').css('font-family', $(this).val());
 	});
 }
 
 function updateWidgetFieldFontSize() {
 	$('#widget_field_font_size').on('change', function(e) {
 		$('#clone-zoom-new-issue').children('input:text, textarea').css('font-size', $(this).val());
+		$('#clone-new-issue').children('input:text, textarea').css('font-size', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
 function updateWidgetButtonFont() {
 	$('#widget_button_font').on('change', function(e) {
 		$('#clone-zoom-new-issue input:button').css('font-family', $(this).val());
+		$('#clone-new-issue input:button').css('font-family', $(this).val());
 	});
 }
 
 function updateWidgetButtonFontSize() {
 	$('#widget_button_font_size').on('change', function(e) {
 		$('#clone-zoom-new-issue input:button').css('font-size', $(this).val());
+		$('#clone-new-issue input:button').css('font-size', (parseFloat($(this).val().split(/[^\d|.]/).join(''))/2).toString() + 'px');
 	});
 }
 
