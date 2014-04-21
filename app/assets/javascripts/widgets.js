@@ -99,6 +99,20 @@ function updateWidgetTabBackgroundColor() {
 	});
 }
 
+function updateWidgetButtonColor() {
+	$('#widget_button_color').on('change', function(e) {
+		$('#feedback-clone-zoom-feedback-submit').css('color', $(this).val());
+		$('#feedback-clone-feedback-submit').css('color', $(this).val());
+	});
+}
+
+function updateWidgetButtonBackgroundColor() {
+	$('#widget_button_background_color').on('change', function(e) {
+		$('#feedback-clone-zoom-feedback-submit').css('background-color', $(this).val());
+		$('#feedback-clone-feedback-submit').css('background-color', $(this).val());
+	});
+}
+
 function updateWidgetBodyFontColor() {
 	$('#widget_body_font_color').on('change', function(e) {
 		$('#clone-zoom-new-issue label').css('color', $(this).val());
@@ -125,6 +139,8 @@ function updateWidgetFormBorderColor() {
 $(function() {
 	updateWidgetTabTextColor();
 	updateWidgetTabBackgroundColor();
+	updateWidgetButtonColor();
+	updateWidgetButtonBackgroundColor();
 	updateWidgetBodyFontColor();
 	updateWidgetFormBackgroundColor();
 	updateWidgetFormBorderColor();

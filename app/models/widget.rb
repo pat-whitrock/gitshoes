@@ -30,6 +30,8 @@ class Widget < ActiveRecord::Base
 			button_font: "sans-serif",
 			button_font_size: "18px",
 			button_text: "Add Issue",
+			button_color: "#ffffff",
+			button_background_color: "#357ebd",
 			button_success_text: "Thank you!",
 			form_background_color: "#ffffff",
 			form_width: "300px",

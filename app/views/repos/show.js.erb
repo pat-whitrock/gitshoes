@@ -103,6 +103,10 @@
           $("form#new_issue").css({
             "margin": "0"
           });
+          $("form #feedback-submit").css({
+            "color": "<%= @widget.button_color %>",
+            "background-color": "<%= @widget.button_background_color %>"
+          });
           $("form#new_issue").on("submit", function(e){
             e.preventDefault();
             var bodyText = jQuery('#issue_system').val();

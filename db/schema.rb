@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 20140404175657) do
     t.string   "button_font_size"
     t.string   "button_text"
     t.string   "button_success_text"
+    t.string   "button_color"
+    t.string   "button_background_color"
     t.string   "form_background_color"
     t.string   "form_width"
     t.string   "form_border_thickness"
