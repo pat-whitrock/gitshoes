@@ -303,30 +303,35 @@ $(function() {
 function updateWidgetTabText() {
 	$('#widget_tab_text').on('change', function(e) {
 		$('#feedback-clone-zoom-gitshoes-button').text($(this).val());
+		$('#feedback-clone-gitshoes-button').text($(this).val());
 	});
 }
 
 function updateWidgetTitleText() {
 	$('#widget_title_field_text').on('change', function(e) {
 		$($('#clone-zoom-new-issue').children('label')[1]).text($(this).val());
+		$($('#clone-new-issue').children('label')[1]).text($(this).val());
 	});
 }
 
 function updateWidgetDescriptionText() {
 	$('#widget_description_field_text').on('change', function(e) {
 		$($('#clone-zoom-new-issue').children('label')[2]).text($(this).val());
+		$($('#clone-new-issue').children('label')[2]).text($(this).val());
 	});
 }
 
 function updateWidgetButtonText() {
 	$('#widget_button_text').on('change', function(e) {
 		$('#clone-zoom-new-issue input:button').val($(this).val());
+		$('#clone-new-issue input:button').val($(this).val());
 	});
 }
 
 function updateWidgetButtonText() {
 	$('#widget_button_text').on('change', function(e) {
 		$('#clone-zoom-new-issue input:button').val($(this).val());
+		$('#clone-new-issue input:button').val($(this).val());
 	});
 }
 
