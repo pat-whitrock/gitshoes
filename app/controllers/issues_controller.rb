@@ -36,7 +36,7 @@ class IssuesController < ApplicationController
 
 	private
 	def issue_params
-		params.require(:issue).permit(:email, :title, :body)
+		params.require(:issue).permit(:email, :title, :body, :data_image)
 	end
 
 end
