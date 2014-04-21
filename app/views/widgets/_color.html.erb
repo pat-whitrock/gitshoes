@@ -1,15 +1,38 @@
 <div class="form-group">
-	Tab text: <%= f.text_field :tab_font_color %>
-</div>
-<div class="form-group">
-	Tab background: <%= f.text_field :tab_background_color %>
-</div>
-<div class="form-group">
-	Body text: <%= f.text_field :body_font_color %>
+	<%= f.label :tab_font_color, "Tab text", :class => "control-label" %>
+	<div class="controls">
+	  <%= f.text_field :tab_font_color, :class => "form-control" %>
 	</div>
+</div>
+</br>
+</br>
 <div class="form-group">
-	Body background: <%= f.text_field :form_background_color %>
+	<%= f.label :tab_background_color, "Tab background", :class => "control-label" %>
+	<div class="controls">
+	  <%= f.text_field :tab_background_color, :class => "form-control" %>
 	</div>
+</div>
+</br>
+</br>
 <div class="form-group">
-	Border: <%= f.text_field :form_border_color %>
+	<%= f.label :body_font_color, "Body text", :class => "control-label" %>
+	<div class="controls">
+	  <%= f.text_field :body_font_color, :class => "form-control" %>
+	</div>
+</div>
+</br>
+</br>
+<div class="form-group">
+	<%= f.label :form_background_color, "Body background", :class => "control-label" %>
+	<div class="controls">
+	  <%= f.text_field :form_background_color, :class => "form-control" %>
+	</div>
+</div>
+</br>
+</br>
+<div class="form-group">
+	<%= f.label :form_border_color, "Border", :class => "control-label" %>
+	<div class="controls">
+	  <%= f.text_field :form_border_color, :class => "form-control" %>
+	</div>
 </div>

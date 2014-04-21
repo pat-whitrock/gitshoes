@@ -18,6 +18,9 @@ function removeActive() {
 	$('.widget-form-section').each(function() {
 		$(this).removeClass('active');
 	});
+	$('.edit-widget-tabs li').each(function() {
+		$(this).removeClass('active');
+	});
 }
 
 function switchToColor() {
@@ -51,26 +54,31 @@ $(function() {
 	$('.switch-to-color').on('click', function(e) {
 		e.preventDefault();
 		removeActive();
+		$(this).parent().addClass('active');
 		switchToColor();
 	});
 	$('.switch-to-font').on('click', function(e) {
 		e.preventDefault();
 		removeActive();
+		$(this).parent().addClass('active');
 		switchToFont();
 	});
 	$('.switch-to-orientation').on('click', function(e) {
 		e.preventDefault();
 		removeActive();
+		$(this).parent().addClass('active');
 		switchToOrientation();
 	});
 	$('.switch-to-size').on('click', function(e) {
 		e.preventDefault();
 		removeActive();
+		$(this).parent().addClass('active');
 		switchToSize();
 	});
 	$('.switch-to-text').on('click', function(e) {
 		e.preventDefault();
 		removeActive();
+		$(this).parent().addClass('active');
 		switchToText();
 	});
 });

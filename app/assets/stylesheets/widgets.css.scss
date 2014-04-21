@@ -2,12 +2,80 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+div#widget_form_buttons {
+	margin-left: 20px;
+	margin-bottom: 25px
+}
+
+div#widget_form_buttons input.btn-default {
+	margin-left: 10px;
+}
+
+ul.edit-widget-tabs {
+	margin: 0px;
+}
+
+ul.edit-widget-tabs li.active {
+	background-color: #357ebd;
+	border-radius: 5px 5px 0px 0px;
+}
+
+div.widget-form-box {
+	margin-top: 20px;
+}
+
+ul.edit-widget-tabs li.active a {
+	color: #ffffff;
+	border-radius: 5px 5px 0px 0px;
+}
+
+ul.edit-widget-tabs li a {
+	font-size: 18px;
+	padding: 2px;
+}
+
+ul.edit-widget-tabs li a:hover {
+	text-decoration: none;
+}
+
+div.widget-form {
+	overflow-y: auto;
+}
+
 div.widget-form-section {
 	display: none;
+	height: 450px;
+	overflow-y: auto;
 }
 
 div.widget-form-section.active {
 	display: block;
+}
+
+div#widget_form {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	border-color: #9a9a9a;
+}
+
+div.widget-form-box input {
+	max-width: 100%;
+}
+
+div.form-group {
+	max-width: 100%;
+	margin-left: 20px;
+}
+
+.form-group .controls {
+	margin-top: 5px;
+}
+
+input.form-control {
+	max-width: 100%;
 }
 
 div#mac-view-container {
