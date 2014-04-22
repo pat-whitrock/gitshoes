@@ -14,7 +14,7 @@ class CreateWidgets < ActiveRecord::Migration
       t.string :field_font
       t.integer :field_font_size
       t.string :title_field_text
-      t.string  :smiley:escription_field_text
+      t.string  :description_field_text
       t.string :button_font
       t.integer :button_font_size
       t.string :button_text
