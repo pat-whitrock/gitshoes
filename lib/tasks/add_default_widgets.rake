@@ -3,7 +3,7 @@ namespace :widgets do
 	task :add_defaults => :environment do
 		Repo.all.each do |repo|
 			widget = Widget.create_default
-			repo.widget = widget
+			repo.widget = widget unless repo.widget
 		end
 	end
 end
