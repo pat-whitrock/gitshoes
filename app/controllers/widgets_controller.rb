@@ -2,8 +2,8 @@ class WidgetsController < ApplicationController
 	protect_from_forgery :except => [:edit]
 
 	def edit
-		@repo = Repo.find(params[:id])
-		@widget = @repo.widget
+		@widget = Widget.find(params[:id])
+		@repo = @widget.repo
 		respond_to do |format|
 			format.html
 			format.js
