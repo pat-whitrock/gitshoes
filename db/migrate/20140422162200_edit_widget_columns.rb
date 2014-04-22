@@ -11,6 +11,5 @@ class EditWidgetColumns < ActiveRecord::Migration
   	change_column :widgets, :form_border_color, :string
   	change_column :widgets, :form_border_radius, :string
   	change_column :widgets, :offset, :string
-  	change_column :widgets, :tab_display, :string
   end
 end
