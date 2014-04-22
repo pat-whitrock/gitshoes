@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   get 'repos/new' => 'repos#new', as: 'new_repo'
   patch 'repos/:id' => 'repos#update'
   get 'repos/:id' => 'repos#show', as: 'repo'
-  get 'repos/:id/preview' => 'repos#preview', as: 'preview_repo'
   post 'repos' => 'repos#create'
   get 'repos' => 'repos#index'
   delete 'repos/:id' => 'repos#destroy', as: 'delete_repo'

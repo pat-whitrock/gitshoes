@@ -129,6 +129,7 @@
                 data: jQuery("#new_issue").serialize(),
                 // Clear, slide down and thank you
                 success: function(data){
+                  debugger;
                   formDiv.slideUp();
                   jQuery('#issue_email').val("");
                   jQuery('#issue_title').val("");
