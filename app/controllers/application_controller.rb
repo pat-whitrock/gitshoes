@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
     return repos_path
   end
 
-
   def set_access_control_headers
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Request-Method'] = 'POST, GET, OPTIONS'

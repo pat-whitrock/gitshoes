@@ -3,7 +3,10 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="page-header">
-      <h1><%= @repo.name %></small>
+      <h1><%= @repo.name %>
+        <% if @repo.language != "" %>
+          <small>// <%= @repo.language %></small>
+        <% end %>
         <%= link_to 'My Shoebox', repos_path, class: "btn btn-primary pull-right" %>
       </h1>
     </div>
