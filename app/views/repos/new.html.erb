@@ -22,7 +22,7 @@
 				<tr>
 					<td><%= link_to r.name.titleize, r.html_url, :target => "_blank" %></td>
 					<td><%= r[:owner][:organizations_url].split('/')[4] %></td>
-					<td><%= r.updated_at %></td> 
+					<td><%= r.updated_at.strftime("%b %d, %Y") %></td>
 					<td>
 						<%= form_for @repo do |f| %>
 						<%= f.hidden_field :address, :value => r.html_url %>
