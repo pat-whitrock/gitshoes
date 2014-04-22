@@ -31,7 +31,7 @@ class ReposController < ApplicationController
 
 	def create
 		if Repo.has_address?(repo_params[:address])
-			Repo.find_or_add_user_to_repo(repo_params[:address])
+			Repo.find_or_add_user_to_repo(repo_params[:address], current_user)
 			redirect_to repos_path
 		else
 			@repo = Repo.new(repo_params)

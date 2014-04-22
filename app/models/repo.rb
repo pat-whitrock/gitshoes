@@ -9,7 +9,7 @@ class Repo < ActiveRecord::Base
     exists?(:address => address)
   end
 
-  def self.find_or_add_user_to_repo(address)
+  def self.find_or_add_user_to_repo(address, current_user)
   	existing_repo = Repo.where(:address => address).first
 		existing_users = existing_repo.users.map {|user| user.id}
 		unless existing_users.include?(current_user.id)
