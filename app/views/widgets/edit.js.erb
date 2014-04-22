@@ -140,8 +140,11 @@
         feedbackCloneNewIssue.find('#issue_system').attr('id', 'feedback-clone-issue-system');
         feedbackCloneNewIssue.find('#issue_system').attr('id', 'feedback-clone-issue-system');
         feedbackCloneNewIssue.find('#feedback-submit').attr('id', 'feedback-clone-feedback-submit').attr('type', 'button');
-        feedbackCloneNewIssue.find('#feedback-clone-feedback-submit').css('color', "<%= @widget.button_color %>")
-        feedbackCloneNewIssue.find('#feedback-clone-feedback-submit').css('background-color', "<%= @widget.button_background_color %>")
+        feedbackCloneNewIssue.find('#feedback-clone-feedback-submit').css('color', "<%= @widget.button_color %>");
+        feedbackCloneNewIssue.find('#feedback-clone-feedback-submit').css('background-color', "<%= @widget.button_background_color %>");
+        feedbackCloneNewIssue.find('#issue_body').attr('id', 'feedback-clone-issue-body');
+        feedbackCloneNewIssue.find('#issue_data_image').attr('id', 'feedback-clone-issue-data-image');
+
         $("form#clone-new-issue").css({
           "margin": "0"
         });
@@ -216,8 +219,10 @@
         feedbackCloneZoomNewIssue.find('#issue_system').attr('id', 'feedback-clone-zoom-issue-system');
         feedbackCloneZoomNewIssue.find('#issue_system').attr('id', 'feedback-clone-zoom-issue-system');
         feedbackCloneZoomNewIssue.find('#feedback-submit').attr('id', 'feedback-clone-zoom-feedback-submit').attr('type', 'button');
-        feedbackCloneZoomNewIssue.find('#feedback-clone-zoom-feedback-submit').css('color', "<%= @widget.button_color %>")
-        feedbackCloneZoomNewIssue.find('#feedback-clone-zoom-feedback-submit').css('background-color', "<%= @widget.button_background_color %>")
+        feedbackCloneZoomNewIssue.find('#feedback-clone-zoom-feedback-submit').css('color', "<%= @widget.button_color %>");
+        feedbackCloneZoomNewIssue.find('#feedback-clone-zoom-feedback-submit').css('background-color', "<%= @widget.button_background_color %>");
+        feedbackCloneZoomNewIssue.find('#issue_body').attr('id', 'feedback-clone-zoom-issue-body');
+        feedbackCloneZoomNewIssue.find('#issue_data_image').attr('id', 'feedback-clone-zoom-issue-data-image');
         
         $("form#clone-zoom-new-issue").css({
           "margin": "0"

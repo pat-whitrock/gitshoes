@@ -25,7 +25,7 @@
 		<div id="widget_form_buttons">
 		  <%= f.submit 'Save widget', class: "btn btn-primary" %>
 	<% end %>
-	<%= form_for @widget, role: "form", url: {action: "update_default"}, html: {class: 'form-inline'} do |f| %>
+	<%= form_for @widget, role: "form", url: {action: "update_default"}, html: {class: 'reset-default'} do |f| %>
 		  <%= f.submit 'Reset default', class: "btn btn-default" %>
 	<% end %>
 		</div>

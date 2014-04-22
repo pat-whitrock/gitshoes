@@ -24,7 +24,6 @@ class WidgetsController < ApplicationController
 		@repo = @widget.repo
 		@default_widget = Widget.create_default
 		@default_widget.id = params[:id]
-		binding.pry
 		@widget.destroy
 		@repo.widget = @default_widget
 		redirect_to repos_path

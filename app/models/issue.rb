@@ -30,7 +30,7 @@ class Issue < ActiveRecord::Base
 		if attributes['email'].length > 0
 			issue_body = "From: #{attributes['email']}\n\n#{attributes['body']}\n\nScreenshot: #{image_url}"
 		else
-			issue_body = "#{attributes['body']}\n\nScreenshot: #{image_url}"
+			issue_body = "#{attributes['body']}\n\nScreenshot:\n\n#{image_url}"
 		end
 
 		client.create_issue(repository.full_name, attributes['title'], issue_body)
