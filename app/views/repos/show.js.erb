@@ -1,3 +1,10 @@
+// Include HTML2Canvas library if not included (for external embeds)
+if( typeof html2canvas === 'undefined' ) {
+  var imported = document.createElement('script');
+  imported.src = 'http://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js';
+  document.head.appendChild(imported);
+}
+
 (function() {
   // If jQuery isn't assigned or isn't version 1.11.0, assign 
   // version 1.11.0 to the variable jQuery. This allows GitShoes
