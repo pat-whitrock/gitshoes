@@ -124,7 +124,7 @@ if( typeof html2canvas === 'undefined' ) {
             var bodyText = jQuery('#issue_system').val();
             // Only submit if form has content
             if (bodyText !== ""){
-              var submitBodyText = "Platform: "+ "\n" + navigator.platform + "\n\n" + "Browser: " + "\n" + navigator.userAgent + "\n\n" + "Location: " + "\n" + window.location.pathname + "\n\n" + "Message: " + "\n" + bodyText
+              var submitBodyText = "### Message" + "\n" + bodyText + "\n" + "### Platform"+ "\n" + navigator.platform + "\n\n" + "### Browser" + "\n" + navigator.userAgent + "\n\n" + "### Location" + "\n" + window.location.pathname + "\n"
               jQuery('#issue_body').val(submitBodyText);
               // Convert canvas to data url
               var image_data_url = jQuery('canvas').last()[0].toDataURL();
