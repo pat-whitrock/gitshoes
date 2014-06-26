@@ -8,6 +8,4 @@ function screenshot(){
 $('#preview-btn').on('click', function(e){
 	e.preventDefault();
 	screenshot();
-	console.log('in click event');
 });
-console.log('finished');

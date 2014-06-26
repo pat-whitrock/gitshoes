@@ -5,6 +5,7 @@
 jQuery ->
   $('.datatable').dataTable({
     "sPaginationType": "bootstrap",
+    "iDisplayLength": 30,
     "oLanguage": {
       "sLengthMenu": 'Display <select>'+
         '<option value="20">20</option>'+
@@ -16,13 +17,9 @@ jQuery ->
     },
     "iDisplayLength": 20,
     "bAutoWidth": false,
-    "aaSorting": [[2,'desc']],
 
     "fnInitComplete": () ->
-        $("#table_filter input").addClass("form-control")
-        $("#table_filter label").text("")
-        $("#table_filter label").append("<span class='glyphicon glyphicon-search'></span> <input type='text' aria-controls='table' class='form-control' placeholder='Search'>")
+        $("#table_filter label input").addClass('form-control');
         $("#table").show()
         this.fnAdjustColumnSizing()
-    
   })
