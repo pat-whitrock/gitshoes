@@ -67,3 +67,4 @@ gem 'jquery-datatables-rails', git: 'https://github.com/wontaeyang/jquery-datata
 gem 'dalli'
 gem 'data_uri'
 gem 'fog'
+gem 'haml-rails'
