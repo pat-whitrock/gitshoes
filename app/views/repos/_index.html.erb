@@ -14,7 +14,7 @@
             <% end %>
             <p>
               <%= link_to 'Edit', edit_repo_path(repo), class: "btn btn-primary btn-sm" %>
-              <%= link_to 'Remove', delete_repo_path(repo), :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger btn-sm" %>
+              <%= link_to 'Remove', repo_path(repo), confirm: 'Are you sure?', method: :delete, class: "btn btn-danger btn-sm" %>
             </p>
           </div>
         </div>

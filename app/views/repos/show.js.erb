@@ -6,7 +6,7 @@ if( typeof html2canvas === 'undefined' ) {
 }
 
 (function() {
-  // If jQuery isn't assigned or isn't version 1.11.0, assign 
+  // If jQuery isn't assigned or isn't version 1.11.0, assign
   // version 1.11.0 to the variable jQuery. This allows GitShoes
   // to use its version of jQuery without conflicting the site's version.
   var jQuery;
@@ -50,7 +50,7 @@ if( typeof html2canvas === 'undefined' ) {
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(wf, s);
       })();
-      
+
       // Create container to hold widget
       var gitshoesInsert = $("<div id='feedback-container'><div id='gitshoes-button'></div></div>");
       gitshoesInsert.css({
@@ -103,7 +103,7 @@ if( typeof html2canvas === 'undefined' ) {
       formDiv.css({"display": "none"});
 
       // Get url for new form url for repo
-      var gitshoesFormUrl = "<%= new_issue_url(@repo) %>";
+      var gitshoesFormUrl = "<%= new_repo_issue_url(@repo) %>";
 
       // Ajax starts here
       jQuery.ajax({
@@ -147,11 +147,11 @@ if( typeof html2canvas === 'undefined' ) {
             };
           })
         }
-        
+
       });
 
       // click event for slide up or slide down
-      jQuery('div#gitshoes-button').on('click', function() { 
+      jQuery('div#gitshoes-button').on('click', function() {
         if (jQuery('#gitshoes-button').html() == "<%= @widget.button_success_text %>"){
           jQuery('#gitshoes-button').html("<%= @widget.button_text %>");
         };

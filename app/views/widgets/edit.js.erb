@@ -50,7 +50,7 @@
     gitshoesCloneFormDiv.css({"display": "none"});
 
     // ajax starts here
-    var gitshoesCloneFormUrl = "<%= new_issue_url(@repo) %>";
+    var gitshoesCloneFormUrl = "<%= new_repo_issue_url(@repo) %>";
     jQuery.ajax({
       url:       gitshoesCloneFormUrl,
       dataType:  "html",
@@ -129,7 +129,7 @@
     gitshoesCloneZoomFormDiv.css({"display": "none"});
 
     // ajax starts here
-    var gitshoesCloneZoomFormUrl = "<%= new_issue_url(@repo) %>";
+    var gitshoesCloneZoomFormUrl = "<%= new_repo_issue_url(@repo) %>";
     jQuery.ajax({
       url:       gitshoesCloneZoomFormUrl,
       dataType:  "html",
@@ -147,7 +147,7 @@
         feedbackCloneZoomNewIssue.find('#feedback-clone-zoom-feedback-submit').css('background-color', "<%= @widget.button_background_color %>");
         feedbackCloneZoomNewIssue.find('#issue_body').attr('id', 'feedback-clone-zoom-issue-body');
         feedbackCloneZoomNewIssue.find('#issue_data_image').attr('id', 'feedback-clone-zoom-issue-data-image');
-        
+
         $("form#clone-zoom-new-issue").css({
           "margin": "0"
         });

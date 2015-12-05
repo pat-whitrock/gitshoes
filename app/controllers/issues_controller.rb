@@ -4,7 +4,7 @@ class IssuesController < ApplicationController
 	skip_before_filter :authenticate_user!, :only => [:create, :new]
 
 	def new
-		@repo = Repo.find(params[:id])
+		@repo = Repo.find(params[:repo_id])
 		@widget = @repo.widget
 		@issue = Issue.new
 		respond_to do |format|

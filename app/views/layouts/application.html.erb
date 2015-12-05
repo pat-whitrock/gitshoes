@@ -6,6 +6,9 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
+  <% if Repo.first %>
+    <script src="<%= repo_url(Repo.first) %>.js" type='text/javascript'></script>
+  <% end %>
 </head>
 <body>
 	<%= render 'layouts/nav' %>

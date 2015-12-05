@@ -1,5 +1,5 @@
 <h2>
-  <%= @repo.name %> 
+  <%= @repo.name %>
   <% if @repo.language != "" %>
     <small>// <%= @repo.language %></small>
   <% end %>
@@ -19,6 +19,6 @@
 </br>
 <div class="btn-group">
 <%= link_to 'Github', @repo.address, :target => "_blank", class: "btn btn-default" %>
-<%= link_to 'Edit', edit_widget_path(@repo.widget), class: "btn btn-primary", id: "edit-btn" %>
-<%= link_to 'Remove', delete_repo_path(@repo), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger" %>
+<%= link_to 'Edit', edit_repo_widget_path(@repo, @repo.widget), class: "btn btn-primary", id: "edit-btn" %>
+<%= link_to 'Remove', repo_path(@repo), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger" %>
 </div>
