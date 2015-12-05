@@ -20,7 +20,7 @@ class ReposController < ApplicationController
 			repo.address
 		end
 		repos_return = current_user.github_repos[:repos]
-		
+
 		@repos = repos_return.reject { |repo|
 			current_user_repos_urls.include?(repo.html_url)
 		}

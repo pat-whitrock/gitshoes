@@ -1,46 +1,30 @@
-# Gitshoes
+# GitShoes
 
 ## Description
 
-Add a short description of your app.
+GitShoes creates custom embeddable feedback widgets for your web apps. Style your widget to go with your site, embed a single script tag in your application layout and now your users can easily send feedback (report bugs, request features) that will be created as an issue in your GitHub repository.
 
-## Screenshots
+## Getting Started
 
-Add some spiffy screenshots of your app here.
+TODO
 
-## Background
+## Contributing
 
-Why did you want to make this app? What was your development process
-like?
+Fork this repository, and issue a pull request against master. Make sure your commit message is clear and concise - if you need more room to elaborate, move on to a new line or provide a description in the pull request.
 
-## Features
-
-Bullet point some of the key features of your app here.
-
-O - Repo Edit page can alter widget (color, size, edges, text, font, etc)
-O - Repo Edit page has placeit for desktop, laptop and mobile showing the widget
-
-O - Use a colorpicker for color tab
-O - Choose between px and % for orientation
-
-## Usage
-
-How do users use your app?
-
-## Development/Contribution
-
-Explain how people can contribute to your app. How should they write tests?
-Any things in particular you'd like to see in pull requests?
-
-## Future
-
-What features are you currently working on? Only mention things that you
-actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
+Not sure where to get started? There are usually [open issues](https://github.com/pat-whitrock/gitshoes/issues) in the repository - start with one of those!
 
 ## Author
 
-Link to your blog, twitter, etc!
+* Pat Whitrock
+  * [GitHub](https://github.com/pat-whitrock)
+  * [Twitter](https://twitter.com/DIS_IS_PATRICK)
+  * [Blog](http://pat-whitrock.github.io/)
+* Wontae Yang
+  * [GitHub](https://github.com/wontaeyang)
+  * [Twitter](https://twitter.com/wontae_yang)
+  * [Blog](http://www.wontaeyang.com/)
 
 ## License
 
-My Spiffy App is MIT Licensed. See LICENSE for details.
+GitShoes is MIT Licensed. See LICENSE for details.
