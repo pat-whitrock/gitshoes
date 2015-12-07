@@ -14,7 +14,7 @@ class IssuesController < ApplicationController
 	end
 
 	def create
-		@repo = Repo.find(params[:id])
+		@repo = Repo.find(params[:repo_id])
 		Issue.create_github_issue(issue_params, @repo)
 
 		respond_to do |format|
