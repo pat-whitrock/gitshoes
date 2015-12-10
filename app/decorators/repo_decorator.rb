@@ -1,0 +1,3 @@
+class RepoDecorator < SimpleDelegator
+
+end

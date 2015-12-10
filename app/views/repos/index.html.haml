@@ -8,7 +8,7 @@
         Your Shoebox
         %small // #{@repos.count} active
         = link_to 'Add Repository', new_repo_path, class: "btn btn-primary pull-right"
-  - if @repos.count == 0
+  - if @repos.empty?
     .row
       .col-md-4
         = image_tag 'shoebox.png', size: "200x200", class: "shoebox"
@@ -21,4 +21,4 @@
     .row.repos-index
       .col-md-3.right-border
         = render 'sidebar'
-      .col-md-9">
+      .col-md-9
