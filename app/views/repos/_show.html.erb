@@ -1,24 +1,23 @@
 <h2>
   <%= @repo.name %>
-  <% if @repo.language != "" %>
-    <small>// <%= @repo.language %></small>
-  <% end %>
+  <%= @repo.language %>
 </h2>
 
-<% if @repo.description != "" %>
-	<p><strong>Description:</strong> <%= @repo.description %></p>
-<% end %>
+<%= @repo.description %>
 
 </br>
 
 <h3>Embed this script in your site's layout:</h3>
-<div class="well"><p><%= "<script src=\"#{repo_url(@repo)}.js\" type='text/javascript'></script>" %></p></div>
+<div class='well'><p><%= "<script src='#{repo_url(@repo)}.js' type='text/javascript'></script>" %></p></div>
 
 </br>
 </br>
 </br>
-<div class="btn-group">
-<%= link_to 'Github', @repo.address, :target => "_blank", class: "btn btn-default" %>
-<%= link_to 'Edit', edit_repo_widget_path(@repo, @repo.widget), class: "btn btn-primary", id: "edit-btn" %>
-<%= link_to 'Remove', repo_path(@repo), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger" %>
+
+<div class='btn-group'>
+  <%= link_to 'Github', @repo.address, target: '_blank', class: 'btn btn-default' %>
+  <%= link_to 'Edit', edit_repo_widget_path(@repo, @repo.widget), class: 'btn btn-primary', id: "edit-btn" %>
+  <%= link_to 'Remove', repo_path(@repo), data: {
+    confirm: 'Are you sure?'
+  }, method: :delete, class: 'btn btn-danger' %>
 </div>

@@ -34,7 +34,7 @@ class ReposController < ApplicationController
       @widget = Widget.create_default
       @repo.widget = @widget
       if @repo.save
-        redirect_to @repo
+        redirect_to repos_path
       else
         @repo = Repo.new(repo_params)
         @repo.token = current_user.token
@@ -49,15 +49,11 @@ class ReposController < ApplicationController
   end
 
   def show
-    if request.referer == new_repo_url
-      return redirect_to repos_path
-    end
-    @repo = Repo.find_by(:id => params[:id])
-    @widget = @repo.widget
+    @repo = Repo.find params[:id]
+
     respond_to do |format|
-      format.html { render :partial => "show"}
-      format.js
-      format.json { render json: @repo }
+      format.html { render partial: 'show' }
+      format.js { @widget = @repo.widget }
     end
   end
 
