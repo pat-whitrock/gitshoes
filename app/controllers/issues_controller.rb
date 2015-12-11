@@ -22,19 +22,8 @@ class IssuesController < ApplicationController
     end
   end
 
-  # def show
-  # end
-
-  # def update
-  # end
-
-  # def edit
-  # end
-
-  # def destroy
-  # end
-
   private
+
   def issue_params
     params.require(:issue).permit(:email, :title, :body, :data_image)
   end
