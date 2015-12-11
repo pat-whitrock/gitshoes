@@ -1,8 +1,8 @@
 class ReposController < ApplicationController
   protect_from_forgery except: [:show]
-  skip_before_filter :authenticate_user!, only: [:show]
-  before_filter only: :show do |controller|
-    authenticate_user! unless controller.format_js?
+  skip_before_action :authenticate_user!, only: [:show]
+  before_action only: :show do
+    authenticate_user! unless format_js?
   end
 
   def index
@@ -79,13 +79,11 @@ class ReposController < ApplicationController
     redirect_to repos_path
   end
 
-  protected
+  private
 
   def format_js?
     request.format.js?
   end
-
-  private
 
   def repo_params
     params.require(:repo).permit(:address, :token, :name,
