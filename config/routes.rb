@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   root 'static#index'
 
-  resources :repos, except: :edit do
+  resources :repos, except: [:edit, :update] do
     resources :issues, only: [:new, :create]
     resources :widgets, only: [:edit, :update]
     patch 'default_widget' => 'widgets#update_default', as: 'update_default_widget'

@@ -61,15 +61,6 @@ class ReposController < ApplicationController
     end
   end
 
-  def update
-    @repo = Repo.find(params[:id])
-    if @repo.update_attributes(repo_params)
-      redirect_to @repo
-    else
-      render :edit
-    end
-  end
-
   def destroy
     Subscription.find_by(
       user: current_user.id,
