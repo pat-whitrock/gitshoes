@@ -14,7 +14,7 @@ Repo.create!([
   {address: "https://github.com/pat-whitrock/binary-search-tree-ruby-004", token: "5d1e586d1d6bf4a600970b4d3d040c8589a888cd", name: "Binary Search Tree Ruby 004", description: "", language: "Ruby", open_issue_count: nil, github_created_at: nil, github_updated_at: nil, full_name: "pat-whitrock/binary-search-tree-ruby-004"},
   {address: "https://github.com/pat-whitrock/flatiron-kitchen-ruby-004", token: "5d1e586d1d6bf4a600970b4d3d040c8589a888cd", name: "Flatiron Kitchen Ruby 004", description: "", language: "Ruby", open_issue_count: nil, github_created_at: nil, github_updated_at: nil, full_name: "pat-whitrock/flatiron-kitchen-ruby-004"}
 ])
-UserRepo.create!([
+Subscription.create!([
   {user_id: 1, repo_id: 1},
   {user_id: 1, repo_id: 2},
   {user_id: 1, repo_id: 3},
