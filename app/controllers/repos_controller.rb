@@ -76,14 +76,6 @@ class ReposController < ApplicationController
     redirect_to repos_path
   end
 
-  def feedback
-    @repo = Repo.find(params[:id])
-    respond_to do |format|
-      format.js   # just renders messages/create.js.erb
-      format.json { render json: @repo }
-    end
-  end
-
   protected
 
   def format_js?

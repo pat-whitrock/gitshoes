@@ -19,6 +19,5 @@ Rails.application.routes.draw do
     resources :issues, only: [:new, :create]
     resources :widgets, only: [:edit, :update]
     patch 'default_widget' => 'widgets#update_default', as: 'update_default_widget'
-    get 'feedback' => 'repos#feedback', as: 'feedback'
   end
 end
