@@ -71,8 +71,11 @@ class ReposController < ApplicationController
   end
 
   def destroy
-    @repo = Repo.find(params[:id])
-    @repo.destroy_or_remove_user(current_user.id, @repo)
+    Subscription.find_by(
+      user: current_user.id,
+      repo: params[:id]
+    ).destroy!
+
     redirect_to repos_path
   end
 
