@@ -1,0 +1,36 @@
+.container-fluid
+  .row
+    .page-header
+      %h1
+        Add Repository
+        %small
+          \// #{@total} repositories available
+        = link_to 'My Shoebox', repos_path, class: 'btn btn-primary pull-right'
+  #loading{ style: 'display: none;' } Loading table from Github....
+  %table#table.table.table-hover.datatable{ style: 'display: none;' }
+    %thead
+      %tr
+        %th
+          NAME
+        %td ORGANIZATION
+        %th
+          UPDATED AT
+        %th ADD
+    %tbody
+      - @repos.each do |r|
+        %tr
+          %td= link_to r.name.titleize, r.html_url, target: '_blank'
+          %td= r[:owner][:organizations_url].split('/')[4]
+          %td= r.updated_at.strftime('%b %d, %Y')
+          %td
+            = form_for @repo do |f|
+              = f.hidden_field :address, value: r.html_url
+              = f.hidden_field :token, value: ''
+              = f.hidden_field :name, value: r.name.titleize
+              = f.hidden_field :full_name, value: r.full_name
+              = f.hidden_field :description, value: r.description
+              = f.hidden_field :language, value: r.language
+              = f.hidden_field :open_issues_count, value: r.open_issues_count
+              = f.hidden_field :github_created_at, value: r.github_created_at
+              = f.hidden_field :github_updated_at, value: r.github_updated_at
+              = f.submit 'Add Repo', class: 'btn btn-primary btn-sm'

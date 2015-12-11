@@ -49,7 +49,7 @@ class ReposController < ApplicationController
   end
 
   def show
-    @repo = Repo.find params[:id]
+    @repo = RepoDecorator.new(Repo.find(params[:id]))
 
     respond_to do |format|
       format.html { render partial: 'show' }

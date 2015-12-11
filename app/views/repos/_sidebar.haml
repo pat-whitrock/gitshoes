@@ -1,0 +1,4 @@
+.list-group
+  - @repos.each do |repo|
+    = link_to repo, class: 'list-group-item', data: { repo_id: repo.id } do
+      = repo.name

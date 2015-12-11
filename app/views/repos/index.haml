@@ -1,5 +1,4 @@
-= javascript_include_tag "repos_index"
-= javascript_include_tag "html2canvas"
+= javascript_include_tag 'repos_index'
 
 .container-fluid
   #row
@@ -7,16 +6,16 @@
       %h1
         Your Shoebox
         %small // #{@repos.count} active
-        = link_to 'Add Repository', new_repo_path, class: "btn btn-primary pull-right"
+        = link_to 'Add Repository', new_repo_path, class: 'btn btn-primary pull-right'
   - if @repos.empty?
     .row
       .col-md-4
-        = image_tag 'shoebox.png', size: "200x200", class: "shoebox"
+        = image_tag 'shoebox.png', size: '200x200', class: 'shoebox'
       .col-md-8
         %h2 Your shoebox is empty!
         %p Add a repository to create your first widget.
         %br/
-        = link_to 'Get started', new_repo_path, class: "btn btn-primary btn-lg"
+        = link_to 'Get started', new_repo_path, class: 'btn btn-primary btn-lg'
   - else
     .row.repos-index
       .col-md-3.right-border
