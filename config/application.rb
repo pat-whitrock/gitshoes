@@ -18,6 +18,7 @@ module Gitshoes
   class Application < Rails::Application
     config.action_view.default_form_builder
     config.autoload_paths += [Rails.root.join('app', 'decorators')]
+    config.autoload_paths += [Rails.root.join('app', 'queries')]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

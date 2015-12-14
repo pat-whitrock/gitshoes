@@ -1,8 +1,8 @@
 class RepoCollection
   include Enumerable
 
-  def initialize user
-    @repos = user.repos.order('name ASC').map do |repo|
+  def initialize source: source
+    @repos = source.all.map do |repo|
       RepoDecorator.new repo
     end
   end

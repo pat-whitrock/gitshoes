@@ -6,20 +6,12 @@ class ReposController < ApplicationController
   end
 
   def index
-    @repos = RepoCollection.new current_user
+    @repos = RepoCollection.new source: SubscribedReposQuery.new(current_user)
   end
 
   def new
-    current_user_repos_urls = current_user.repos.map do |repo|
-      repo.address
-    end
-    repos_return = current_user.github_repos[:repos]
+    @repos = RepoCollection.new source: UnsubscribedReposQuery.new(current_user)
 
-    @repos = repos_return.reject { |repo|
-      current_user_repos_urls.include?(repo.html_url)
-    }
-    @total = @repos.count
-    @repo = Repo.new
     expires_in 30.minutes, public: true
   end
 
