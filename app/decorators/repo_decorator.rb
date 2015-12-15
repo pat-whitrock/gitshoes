@@ -1,14 +1,14 @@
 class RepoDecorator < SimpleDelegator
-  def description
-    "<p><strong>Description:</strong> #{super}</p>" if super.present?
+  def readable_description
+    "<p><strong>Description:</strong> #{description}</p>".html_safe if description.present?
   end
 
   def gh_updated_at
     github_updated_at.strftime '%b %d, %Y'
   end
 
-  def language
-    "<small>// #{super}</small>" if super.present?
+  def readable_language
+    "<small>// #{language}</small>".html_safe if language.present?
   end
 
   def organization
