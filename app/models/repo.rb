@@ -3,7 +3,18 @@ class Repo < ActiveRecord::Base
   has_many :subscriptions
   has_many :users, through: :subscriptions
   has_one :widget
+
+  after_create :create_default_widget!
+
   validates :address, uniqueness: true
+
+  def self.find_or_create_with_subscription user: user, params: params
+    if repo = find_by(address: params[:address])
+      Subscription.create!(user: user, repo: repo).repo
+    else
+      user.repos.create! params.merge(token: user.token)
+    end
+  end
 
   def self.from_github github_repo
     new({
@@ -28,6 +39,10 @@ class Repo < ActiveRecord::Base
     unless existing_users.include?(current_user.id)
       Repo.where(:address => address).first.users << current_user
     end
+  end
+
+  def create_default_widget!
+    create_widget! Widget::DEFAULT_PARAMS
   end
 
   def destroy_or_remove_user user_id, repo

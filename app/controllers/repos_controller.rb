@@ -5,6 +5,24 @@ class ReposController < ApplicationController
     authenticate_user! unless format_js?
   end
 
+  def create
+    Repo.find_or_create_with_subscription(
+      user: current_user,
+      params: repo_params
+    )
+
+    redirect_to repos_path
+  end
+
+  def destroy
+    Subscription.find_by(
+      user: current_user.id,
+      repo: params[:id]
+    ).destroy!
+
+    redirect_to repos_path
+  end
+
   def index
     @repos = RepoCollection.new source: SubscribedReposQuery.new(current_user)
   end
@@ -15,31 +33,6 @@ class ReposController < ApplicationController
     expires_in 30.minutes, public: true
   end
 
-  def create
-    if Repo.has_address?(repo_params[:address])
-      Repo.find_or_add_user_to_repo(repo_params[:address], current_user)
-      redirect_to repos_path
-    else
-      @repo = Repo.new(repo_params)
-      @repo.token = current_user.token
-      @repo.users << current_user
-      @widget = Widget.create_default
-      @repo.widget = @widget
-      if @repo.save
-        redirect_to repos_path
-      else
-        @repo = Repo.new(repo_params)
-        @repo.token = current_user.token
-        @repo.users << current_user
-        if @repo.save
-          redirect_to repos_path
-        else
-          render :new
-        end
-      end
-    end
-  end
-
   def show
     @repo = RepoDecorator.new(Repo.find(params[:id]))
 
@@ -47,15 +40,6 @@ class ReposController < ApplicationController
       format.html { render partial: 'show' }
       format.js { @widget = @repo.widget }
     end
-  end
-
-  def destroy
-    Subscription.find_by(
-      user: current_user.id,
-      repo: params[:id]
-    ).destroy!
-
-    redirect_to repos_path
   end
 
   private
