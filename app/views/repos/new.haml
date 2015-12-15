@@ -4,7 +4,8 @@
       %h1
         Add Repository
         %small
-          \// #{@repos.count} repositories available
+          \//
+          = @repos.available
         = link_to 'My Shoebox', repos_path, class: 'btn btn-primary pull-right'
   #loading{ style: 'display: none;' } Loading table from Github....
   %table#table.table.table-hover.datatable{ style: 'display: none;' }
@@ -19,9 +20,9 @@
     %tbody
       - @repos.each do |repo|
         %tr
-          %td= link_to repo.name.titleize, repo.address, target: '_blank'
-          %td= repo.full_name.split('/').first
-          %td= repo.github_updated_at.strftime('%b %d, %Y')
+          %td= link_to repo.title, repo.address, target: '_blank'
+          %td= repo.organization
+          %td= repo.gh_updated_at
           %td
             = form_for repo do |f|
               = f.hidden_field :address
