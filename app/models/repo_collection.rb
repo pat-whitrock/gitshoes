@@ -8,10 +8,14 @@ class RepoCollection
   end
 
   def each &block
-    @repos.each &block
+    repos.each &block
   end
 
   def method_missing meth, *args
-    @repos.send meth, *args
+    repos.send meth, *args
   end
+
+  private
+
+  attr_reader :repos
 end
