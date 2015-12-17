@@ -1,0 +1,12 @@
+= form_for @custom_issue.issue, url: repo_issues_url do |f|
+  = f.label :email, 'Email (optional)', style: 'margin: 10px 0 10px 0; font-family: "Open Sans", sans-serif; display: inline-block;'
+  = f.text_field :email, style: 'width: 100%; height: 35px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; outline: 0; border: 1px solid #ccc; padding: 4px 7px; font-family: "Open Sans", sans-serif; margin: 0; font-size: 15px;'
+  = f.label :title, style: 'margin: 10px 0 10px 0; font-family: "Open Sans", sans-serif; display: inline-block;'
+  = f.text_field :title, style: 'width: 100%; height: 35px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; outline: 0; border: 1px solid #ccc; padding: 4px 7px; font-family: "Open Sans", sans-serif;  margin: 0;  font-size: 15px;'
+  = f.label :body, 'Description', style: 'margin: 10px 0 10px 0; font-family: "Open Sans", sans-serif; display: inline-block;'
+  %input#issue_body{ name: 'issue[body]', type: 'hidden', value: '' }
+  %textarea#issue_system{ name: 'issue[system]', style: 'width: 100%; height: 80px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; outline: 0; border: 1px solid #ccc; padding: 4px 7px; font-family: "Open Sans", sans-serif;  margin: 0;  font-size: 15px;', value: '' }
+  %input#issue_data_image{ name: 'issue[data_image]', type: 'hidden', value: '' }
+  = f.submit @custom_issue.widget.button_text, id: 'feedback-submit', style: 'margin: 10px 0 10px 0; background-color: #357ebd; border: 0; padding: 10px; width: 100%; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; color: white; font-size: 18px; font-family: "Open Sans", sans-serif;'
+  %span{ style: 'width: 100%; text-align:center;' }
+    Powered by #{link_to 'Gitshoes', root_url, style: 'text-decoration: none;'}

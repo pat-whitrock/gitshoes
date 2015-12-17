@@ -1,16 +1,12 @@
 class IssuesController < ApplicationController
-  protect_from_forgery :except => [:new, :show, :create]
+  protect_from_forgery except: [:new, :show, :create]
   after_action :set_access_control_headers
-  skip_before_action :authenticate_user!, :only => [:create, :new]
+  skip_before_action :authenticate_user!, only: [:create, :new]
 
   def new
-    @repo = Repo.find(params[:repo_id])
-    @widget = @repo.widget
-    @issue = Issue.new
-    respond_to do |format|
-      format.js   # just renders messages/create.js.erb
-      format.html { render :partial => "new" }
-    end
+    @custom_issue = CustomIssue.new params[:repo_id]
+
+    render partial: 'new'
   end
 
   def create
@@ -27,5 +23,4 @@ class IssuesController < ApplicationController
   def issue_params
     params.require(:issue).permit(:email, :title, :body, :data_image)
   end
-
 end
